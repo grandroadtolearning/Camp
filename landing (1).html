@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>啟程高一・三日成長營｜得勝者文教 三升一</title>
+<meta name="description" content="國三升高一的暑假，跟好友一起走進台大、組成小隊，把『高中怎麼讀』提前玩懂。三天帶走一份屬於你的高一學習計畫。" />
+<style>
+  :root{
+    --ink:#16233a;
+    --ink-soft:#3a4a63;
+    --accent:#ff6b35;
+    --accent-2:#2f6bff;
+    --cream:#fff7f0;
+    --line:#e7ddd3;
+    --green:#1f9d6b;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+    color:var(--ink);background:var(--cream);line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+  section{padding:72px 0}
+  h2{font-size:clamp(26px,4.4vw,40px);line-height:1.3;letter-spacing:.5px}
+  .eyebrow{display:inline-block;font-size:14px;font-weight:700;letter-spacing:2px;
+    color:var(--accent);background:#fff;border:1px solid var(--line);
+    padding:6px 14px;border-radius:999px;margin-bottom:18px}
+  .lead{font-size:18px;color:var(--ink-soft);margin-top:16px}
+
+  /* top bar */
+  .bar{position:sticky;top:0;z-index:50;background:rgba(255,247,240,.92);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .bar .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{font-weight:900;letter-spacing:1px}
+  .brand span{color:var(--accent)}
+  .btn{display:inline-block;font-weight:800;text-decoration:none;border-radius:999px;
+    padding:13px 26px;transition:transform .15s ease, box-shadow .15s ease;border:0;cursor:pointer}
+  .btn-primary{background:var(--accent);color:#fff;box-shadow:0 8px 20px rgba(255,107,53,.35)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(255,107,53,.45)}
+  .btn-ghost{background:#fff;color:var(--ink);border:1.5px solid var(--ink)}
+  .bar .btn{padding:10px 20px;font-size:15px}
+
+  /* hero */
+  .hero{padding:84px 0 64px;position:relative;overflow:hidden}
+  .hero:before{content:"";position:absolute;right:-160px;top:-120px;width:460px;height:460px;
+    background:radial-gradient(circle,#ffd9c5,transparent 70%);z-index:0}
+  .hero .wrap{position:relative;z-index:1}
+  .hero h1{font-size:clamp(34px,6.4vw,62px);line-height:1.18;letter-spacing:1px}
+  .hero h1 b{color:var(--accent)}
+  .hero .sub{font-size:clamp(17px,2.4vw,21px);color:var(--ink-soft);margin-top:20px;max-width:640px}
+  .facts{display:flex;flex-wrap:wrap;gap:12px;margin:30px 0 32px}
+  .fact{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 18px;font-weight:700}
+  .fact b{display:block;font-size:22px;color:var(--ink)}
+  .fact small{color:var(--ink-soft);font-weight:600}
+  .cta-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+  .cta-note{font-size:14px;color:var(--ink-soft)}
+
+  /* pain split */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:34px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px}
+  .card h3{font-size:21px;margin-bottom:14px}
+  .tag{display:inline-block;font-size:13px;font-weight:800;padding:5px 12px;border-radius:999px;margin-bottom:14px}
+  .tag-s{background:#fff0e8;color:var(--accent)}
+  .tag-p{background:#e9f0ff;color:var(--accent-2)}
+  .card ul{list-style:none}
+  .card li{padding-left:28px;position:relative;margin-bottom:10px;color:var(--ink-soft)}
+  .card li:before{content:"✓";position:absolute;left:0;font-weight:900;color:var(--green)}
+  .pain li:before{content:"–";color:#c2b3a3;font-weight:900}
+
+  /* pillars */
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px}
+  .pillar{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px;text-align:left}
+  .pillar .num{font-size:13px;font-weight:900;color:var(--accent);letter-spacing:2px}
+  .pillar h3{font-size:20px;margin:10px 0 12px}
+  .pillar p{color:var(--ink-soft);font-size:15.5px}
+
+  /* days */
+  .days{margin-top:36px;display:grid;gap:18px}
+  .day{display:grid;grid-template-columns:120px 1fr;gap:24px;background:#fff;border:1px solid var(--line);
+    border-radius:var(--radius);padding:28px;align-items:start}
+  .day .label{font-weight:900}
+  .day .label b{display:block;font-size:30px;color:var(--accent);line-height:1}
+  .day h3{font-size:20px;margin-bottom:8px}
+  .day p{color:var(--ink-soft);font-size:15.5px}
+  .day .pill{display:inline-block;background:var(--cream);border:1px solid var(--line);
+    border-radius:999px;padding:4px 12px;font-size:13px;font-weight:700;margin:8px 6px 0 0}
+
+  /* parent band */
+  .parent{background:var(--ink);color:#fff;border-radius:24px;padding:48px}
+  .parent .eyebrow{background:rgba(255,255,255,.08);color:#ffd9c5;border-color:transparent}
+  .parent h2{color:#fff}
+  .parent .lead{color:#c7d2e2}
+  .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:30px}
+  .pbox{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:24px}
+  .pbox h4{font-size:17px;margin-bottom:8px;color:#fff}
+  .pbox p{color:#bcc8da;font-size:14.5px}
+
+  /* price */
+  .price{background:#fff;border:2px solid var(--ink);border-radius:24px;padding:42px;text-align:center;max-width:680px;margin:36px auto 0}
+  .price .big{font-size:52px;font-weight:900;color:var(--ink);line-height:1}
+  .price .big small{font-size:20px;color:var(--ink-soft);font-weight:700}
+  .price .back{display:inline-block;background:#eafaf3;color:var(--green);font-weight:800;
+    border-radius:999px;padding:8px 18px;margin:18px 0}
+  .price ul{list-style:none;text-align:left;max-width:440px;margin:18px auto 26px}
+  .price li{padding-left:28px;position:relative;margin-bottom:10px}
+  .price li:before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:900}
+
+  /* referral */
+  .ref{background:linear-gradient(135deg,#ff6b35,#ff9a3d);color:#fff;border-radius:24px;padding:44px;text-align:center}
+  .ref h2{color:#fff}
+  .ref p{font-size:18px;margin-top:12px;opacity:.95}
+  .ref .btn-ghost{background:#fff;border-color:#fff;margin-top:24px}
+
+  /* faq */
+  details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:0 24px;margin-bottom:14px}
+  summary{cursor:pointer;font-weight:800;padding:20px 0;list-style:none;font-size:17px}
+  summary::-webkit-details-marker{display:none}
+  summary:after{content:"+";float:right;color:var(--accent);font-weight:900}
+  details[open] summary:after{content:"–"}
+  details p{padding-bottom:22px;color:var(--ink-soft)}
+
+  /* final */
+  .final{text-align:center}
+  .final h2{margin-bottom:10px}
+
+  footer{background:var(--ink);color:#9fb0c6;padding:40px 0;font-size:14px}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
+  footer b{color:#fff}
+
+  .center{text-align:center}
+  .mt{margin-top:30px}
+
+  @media(max-width:760px){
+    section{padding:52px 0}
+    .split,.pillars,.pgrid{grid-template-columns:1fr}
+    .day{grid-template-columns:1fr;gap:10px}
+    .parent{padding:32px 24px}
+    .bar .brand{font-size:15px}
+  }
+</style>
+</head>
+<body>
+
+<!-- 注意：以下【】內為待確認資訊（日期／地點／名額／LINE 連結／QR），確定後請替換 -->
+
+<div class="bar">
+  <div class="wrap">
+    <div class="brand">得勝者文教 · <span>三升一</span></div>
+    <a href="#signup" class="btn btn-primary">加 LINE 搶名額</a>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">國三升高一 · 暑假三日成長營</span>
+    <h1>升高一的暑假，<br>跟好友一起把<b>高中怎麼讀</b>，先玩懂。</h1>
+    <p class="sub">不是補習班的暑期班。三天，組一支小隊、走進台大、帶回一份只屬於你的高一學習計畫——還能揪上你最好的朋友一起來。</p>
+
+    <div class="facts">
+      <div class="fact"><b>3 天</b><small>全程小隊制</small></div>
+      <div class="fact"><b>台大日</b><small>走進校園・想像三年後</small></div>
+      <div class="fact"><b>限額【__】人</b><small>額滿不加開</small></div>
+      <div class="fact"><b>【__/__】開營</b><small>暑假梯次</small></div>
+    </div>
+
+    <div class="cta-row">
+      <a href="#signup" class="btn btn-primary">立即加 LINE 報名</a>
+      <a href="#days" class="btn btn-ghost">看三天玩什麼</a>
+      <span class="cta-note">名額有限，揪團報名再享好友優惠 ↓</span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <span class="eyebrow">這個暑假，你卡在哪裡？</span>
+    <h2>學生想放鬆、爸媽想超前——<br>這場營，兩邊都顧到了。</h2>
+
+    <div class="split">
+      <div class="card">
+        <span class="tag tag-s">給準高一生</span>
+        <h3>你的暑假心聲</h3>
+        <ul class="pain">
+          <li>不想再被關在教室聽課，只想跟朋友出去</li>
+          <li>升高中聽起來好可怕，但又不知道怎麼準備</li>
+          <li>要去陌生環境、認識新同學，光想就有點累</li>
+        </ul>
+        <p style="margin-top:14px;color:var(--ink)"><b>所以我們把它變成一場營，不是一堂課。</b>小隊一起闖關、一起玩，還能揪好友同隊——來這裡，是來交朋友的。</p>
+      </div>
+      <div class="card">
+        <span class="tag tag-p">給家長</span>
+        <h3>您的擔心</h3>
+        <ul class="pain">
+          <li>暑假兩個月，孩子只想出去玩，學習完全斷線</li>
+          <li>高中比國中難太多，舊讀書方法一定不夠用</li>
+          <li>送去枯燥的銜接班，孩子根本坐不住、不想去</li>
+        </ul>
+        <p style="margin-top:14px;color:var(--ink)"><b>孩子覺得是在玩，其實三天都在練「怎麼讀高中」。</b>學習方法、學習計畫，玩中學進去——這是補習班暑期班做不到的事。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <span class="eyebrow">三大亮點</span>
+    <h2>為什麼是這三天，而不是又一個暑期班？</h2>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="num">01 · 朋友一起來</div>
+        <h3>全程小隊制，揪團更好玩</h3>
+        <p>來的第一刻就分進小隊，三天一起闖關、一起完成任務。可以揪上自己的好友同隊——社交焦慮歸零，只剩一起玩的爽快。</p>
+      </div>
+      <div class="pillar">
+        <div class="num">02 · 走進台大</div>
+        <h3>提前想像三年後的自己</h3>
+        <p>用一個早上走進台大校園，在真正的大學教室裡上一堂課、玩一場任務。讓「考好高中」不再是壓力，而是一個看得見的目標。</p>
+      </div>
+      <div class="pillar">
+        <div class="num">03 · 帶走學習計畫</div>
+        <h3>不是聽完就忘的方法課</h3>
+        <p>三天裡，老師帶你練真正用得上的學習方法，並一起完成一份屬於你的高一學習計畫——開學第一天，就比別人準備好。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="days">
+  <div class="wrap">
+    <span class="eyebrow">三天流程</span>
+    <h2>三天，這樣玩、這樣長大</h2>
+    <p class="lead">每天都有大量小隊時間，邊玩邊把高中的讀書節奏練起來。（完整時刻表報名後寄發）</p>
+
+    <div class="days">
+      <div class="day">
+        <div class="label">DAY<b>1</b></div>
+        <div>
+          <h3>破冰・組隊・找到你的人</h3>
+          <p>分進小隊、破冰任務、團隊挑戰。三天的好朋友，從今天開始。同時，第一次認識「高中和國中差在哪、該怎麼讀」。</p>
+          <span class="pill">小隊成軍</span><span class="pill">團隊闖關</span><span class="pill">高中讀書觀念</span>
+        </div>
+      </div>
+      <div class="day">
+        <div class="label">DAY<b>2</b></div>
+        <div>
+          <h3>走進台大・看見未來的自己</h3>
+          <p>移動到台大校園，在大學教室裡上一堂不一樣的課、玩一場校園任務。回到基地後，把今天的衝勁化成自己的學習方法。</p>
+          <span class="pill">台大校園日</span><span class="pill">校園任務</span><span class="pill">學習方法工作坊</span>
+        </div>
+      </div>
+      <div class="day">
+        <div class="label">DAY<b>3</b></div>
+        <div>
+          <h3>做出你的高一學習計畫</h3>
+          <p>把三天學到的方法，收斂成一份可以帶回家、開學就能用的學習計畫。小隊成果發表、頒獎，帶著新朋友和新目標畢業。</p>
+          <span class="pill">學習計畫產出</span><span class="pill">成果發表</span><span class="pill">結業頒獎</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="parent">
+      <span class="eyebrow">給家長的話</span>
+      <h2>孩子覺得是在玩，<br>您看到的是扎實的銜接。</h2>
+      <p class="lead">這不是把上課包裝成活動。三天的每一個遊戲背後，都對準同一件事：讓孩子在升高一前，先把「自己怎麼讀書」搞定。</p>
+      <div class="pgrid">
+        <div class="pbox">
+          <h4>學習方法，不是塞知識</h4>
+          <p>高中內容暴增，國中那套硬背一定撐不住。我們教孩子「怎麼讀」，建立能用三年的方法。</p>
+        </div>
+        <div class="pbox">
+          <h4>帶走一份學習計畫</h4>
+          <p>三天結束，孩子手上有一份自己做的高一學習計畫，開學就能執行，不是回家就忘。</p>
+        </div>
+        <div class="pbox">
+          <h4>費用透明，回饋看得見</h4>
+          <p>報名費的一部分，開學後可直接折抵三升一正式課程學費，等於提前替孩子鋪好下一步。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap center">
+    <span class="eyebrow">費用方案</span>
+    <h2>一筆費用，孩子玩三天，<br>還幫您鋪好開學的路。</h2>
+
+    <div class="price">
+      <div class="big">NT$ 3,000 <small>/ 三天</small></div>
+      <div class="back">其中 NT$ 1,500 開學後可折抵三升一正式課程學費</div>
+      <ul>
+        <li>三天全程營隊活動 ＋ 小隊制帶領</li>
+        <li>台大校園日（含交通安排與保險）</li>
+        <li>三日午餐 ＋ 專屬文具包</li>
+        <li>一份帶回家的高一學習計畫</li>
+      </ul>
+      <a href="#signup" class="btn btn-primary">加 LINE 詢問 / 報名</a>
+      <p class="cta-note" style="margin-top:14px">＊實際費用與折抵方式以正式報名說明為準。</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="ref">
+      <span class="eyebrow">揪團更划算</span>
+      <h2>一個人來有點怕？<br>那就揪上你最好的朋友。</h2>
+      <p>揪一位好友一起報名，兩人可以分到同一支小隊，<br>還能各享好友優惠【__】。最棒的暑假，本來就該跟最對的人一起過。</p>
+      <a href="#signup" class="btn btn-ghost">揪團報名去</a>
+    </div>
+  </div>
+</section>
+
+<section style="background:#fff;border-top:1px solid var(--line)">
+  <div class="wrap">
+    <span class="eyebrow">常見問題</span>
+    <h2>報名前，先問清楚</h2>
+    <div class="mt">
+      <details open>
+        <summary>這跟一般補習班的暑期銜接班有什麼不同？</summary>
+        <p>暑期班通常是提前把高中課本搬出來上。我們做的是「營」——用三天的小隊活動、台大校園日，讓孩子先學會「怎麼讀高中」並做出自己的學習計畫。重點是方法與動機，不是搶進度。</p>
+      </details>
+      <details>
+        <summary>孩子比較內向、不太敢認識新朋友，適合嗎？</summary>
+        <p>非常適合。全程小隊制，一進場就有一群隊友，活動會帶著大家自然熟起來；也歡迎揪上原本就認識的好友同隊，讓第一步輕鬆很多。</p>
+      </details>
+      <details>
+        <summary>三天都在玩，真的學得到東西嗎？</summary>
+        <p>玩是形式，學習方法與學習計畫是核心。每天都安排了方法練習，孩子會在三天後帶走一份能在高中執行的計畫，而不是聽完就忘的一堂課。</p>
+      </details>
+      <details>
+        <summary>台大校園日安全嗎？怎麼移動？</summary>
+        <p>校園日由營隊統一安排交通與帶隊老師全程陪同，並投保活動保險。詳細集合與接送方式會在報名後的行前通知說明。</p>
+      </details>
+      <details>
+        <summary>費用 3,000 元包含什麼？折抵是怎麼算的？</summary>
+        <p>費用包含三天活動、台大校園日、三日午餐與文具包。其中一部分（NT$1,500）在開學後報名三升一正式課程時可直接折抵學費，等於把這筆錢用在孩子接下來的學習上。實際方式以報名說明為準。</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="signup" class="final">
+  <div class="wrap">
+    <span class="eyebrow">名額有限・額滿不加開</span>
+    <h2>把這個暑假，過成值得記得的三天。</h2>
+    <p class="lead">加入官方 LINE，我們會把梯次、時間與報名表單傳給您。<br>想跟好友同隊，記得一起加、一起報。</p>
+    <div class="cta-row center" style="justify-content:center;margin-top:26px">
+      <a href="【LINE 連結】" class="btn btn-primary">加 LINE 搶名額</a>
+      <a href="【報名表單連結】" class="btn btn-ghost">直接填報名表</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><b>得勝者文教 · 三升一課程</b><br>國三升高一・暑假三日成長營</div>
+    <div>洽詢專線【__】<br>官方 LINE：【__】</div>
+  </div>
+</footer>
+
+</body>
+</html>

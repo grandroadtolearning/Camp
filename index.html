@@ -265,7 +265,7 @@
   .cred-btn-open .cred-arrow{transform:rotate(180deg)}
   @media(max-width:760px){
     .guide-body{grid-template-columns:1fr;gap:20px}
-    .guide-main-card{padding:28px 22px;overflow:visible}
+    .guide-main-card{padding:28px 22px}
     .guide-main-stat{gap:8px}
   }
 
@@ -392,15 +392,13 @@
   .final{text-align:center}
   .final h2{margin-bottom:10px}
 
-  /* 手機專屬斷行：桌機隱藏，手機顯示 */
-  .br-m{display:none}
-  @media(max-width:760px){.br-m{display:inline}}
-
   footer{background:#0f0a0f;color:rgba(255,255,255,.35);padding:32px 24px;text-align:center;font-size:13px;border-top:1px solid rgba(255,255,255,.06)}
   footer a{color:rgba(255,255,255,.5);text-decoration:none}
   footer a:hover{color:#fff}
 
   .center{text-align:center}
+  /* 手機專屬換行 */
+  .br-m{display:none}
   .mt{margin-top:30px}
 
   @media(max-width:760px){
@@ -412,8 +410,9 @@
     .eyebrow{font-size:12px;letter-spacing:1px;text-align:center}
 
     /* mobile pain section */
-    .arch-tabs{gap:8px}
-    .arch-btn{font-size:13px;padding:12px 6px}
+    .br-m{display:inline}
+    .arch-tabs{gap:8px;flex-wrap:wrap}
+    .arch-btn{font-size:13px;padding:12px 6px;flex:1 1 calc(33% - 8px)}
     .arch-btn .arch-emoji{font-size:18px}
     .arch-card{flex-direction:column}
     .arch-card-photo-frame{flex:none;padding:14px 14px 0}
@@ -422,6 +421,9 @@
     .research-block{padding:24px 20px}
     .method-block{padding:28px 22px}
     .u-pill{min-width:100%}
+    .u-tabs{gap:8px;flex-wrap:wrap}
+    .u-tab-btn{flex:1 1 calc(33% - 8px)}
+    .guide-main-card{overflow:visible}
   }
 </style>
 </head>
@@ -610,7 +612,7 @@
     <div class="hero-inner">
       <span class="eyebrow">讀書方法營</span>
       <h1>快速上手<br><b>高中學習技能</b></h1>
-      <p class="sub">讓你上高中可以：把書<b style="color:var(--accent)">讀完</b>、<b style="color:var(--accent)">讀懂</b>、<b style="color:var(--accent)">稱霸</b></p>
+      <p class="sub">讓你上高中可以：<wbr>把書<b style="color:var(--accent)">讀完</b>、<b style="color:var(--accent)">讀懂</b>、<b style="color:var(--accent)">稱霸</b></p>
       <div class="facts">
         <div class="fact"><b>2 天</b><small>沉浸式營隊</small></div>
         <div class="fact"><b>30 人/梯</b><small>限額招生</small></div>
@@ -694,7 +696,7 @@
     <div class="research-block">
       <div class="research-label">然而， PISA 2018 的研究發現...</div>
       <h3 class="research-h3">不是越努力，成績就越好！</h3>
-      <p class="research-desc">學者指出：「讀更久，<br class="br-m">並不一定會考更好」！<br>學習時間與成績，很可能呈現倒 U 型關係 <span style="font-size:14px;color:#a09080">(Liu et al., 2023)</span></p>
+      <p class="research-desc">學者指出：<wbr><span style="white-space:nowrap">「讀更久，並不一定會考更好」</span>！<wbr><br>學習時間與成績，<wbr>很可能呈現倒 U 型關係 <span style="font-size:14px;color:#a09080">(Liu et al., 2023)</span></p>
 
       <div class="u-charts" style="grid-template-columns:1fr;max-width:560px;margin:0 auto">
 
@@ -760,22 +762,22 @@
         <p>沒有讀書，成績自然落後</p>
       </div>
       <div class="u-tab-content active" id="utab-best">
-        <p>落在「最佳學習時間區間」的學生，不只成績表現最好，主觀幸福感也最高——讀書和生活，本來就可以同時都有。</p>
+        <p>落在<span style="white-space:nowrap">「最佳學習時間區間」</span>的學生，<wbr>不只成績表現最好，<wbr>主觀幸福感也最高——讀書和生活，<wbr>本來就可以同時都有。</p>
       </div>
       <div class="u-tab-content" id="utab-over">
-        <p>每天都在捲、瘋狂努力！<br>但這些學生，成績反而不會隨努力時間增加而進步......</p>
+        <p>每天都在捲、瘋狂努力！<br>但這些學生，成績反而不會隨<br class="br-m">努力時間增加而進步......</p>
       </div>
 
       <div style="margin-top:18px;padding:18px 22px;background:var(--cream);border-radius:12px;border-left:4px solid var(--accent)">
-        <p style="color:var(--ink);font-size:16px;font-weight:700;line-height:1.7">為什麼有人「一天花2小時讀書」，<br>成績卻比<br class="br-m">「每天讀6小時」的同學高？</p>
+        <p style="color:var(--ink);font-size:16px;font-weight:700;line-height:1.7">為什麼有人<span style="white-space:nowrap">「一天花2小時讀書」</span>，<wbr><br>成績卻比<span style="white-space:nowrap">「每天讀6小時」</span>的同學高？</p>
       </div>
-      <div class="cite">Liu et al. (2023) · Behavioral Sciences · PISA 2018 · 北京、上海、江蘇、浙江 · N = 9,343 · 閾值迴歸</div>
+      <div class="cite">Liu et al. (2023) · Behavioral Sciences · PISA 2018</div>
     </div>
 
     <!-- ── Part 3: 學習方法是關鍵 ── -->
     <div class="method-block">
       <div class="method-tag">研究發現</div>
-      <h3>真正拉開差距的是「學習方法」！</h3>
+      <h3>真正拉開差距的是<span style="white-space:nowrap">「學習方法」</span>！</h3>
       <p>同樣花兩小時讀書，有好方法的人吸收三倍、記得更久！<br>只可惜，一直以來學校和補習班——<span style="display:block;margin-top:14px;padding:16px 20px;background:rgba(255,107,53,.12);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;font-weight:700;line-height:1.8;color:#fff">讓學生花大量的時間<span style="color:var(--accent)">「聽課」</span>，<br>卻沒有訓練學生<span style="color:var(--accent)">「用對方法讀書」</span>。</span></p>
 
       <!-- Survey Interactive Block -->
@@ -933,7 +935,7 @@
 
         <blockquote class="guide-main-quote" style="font-size:16px;font-weight:800;font-style:normal;color:#fff;border-left-color:var(--accent);margin:0 0 16px">「為什麼台灣學生補習、努力，成績卻沒有起色？」</blockquote>
 
-        <p style="margin-bottom:20px">他們發現，不是學生不夠努力，<br class="br-m">而是<strong>讀書方法的問題！</strong></p>
+        <p style="margin-bottom:20px">他們發現，不是學生不夠努力，而是<strong>讀書方法的問題！</strong></p>
 
         <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:20px">
 
@@ -960,11 +962,22 @@
             <div style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:10px 14px;cursor:pointer"
                  onclick="var d=this.nextElementSibling;d.style.display=d.style.display==='block'?'none':'block'">
               <span style="font-size:16px;flex-shrink:0">📹</span>
-              <span style="font-size:14px;color:#c7d2e2;line-height:1.5;flex:1">經營學習方法頻道，<br class="br-m">被認為是<strong style="color:#fff">市面上最到位</strong>的頻道</span>
+              <span style="font-size:14px;color:#c7d2e2;line-height:1.5;flex:1">經營學習方法頻道，被認為是<strong style="color:#fff">市面上最到位</strong>的頻道</span>
               <span style="font-size:10px;color:rgba(255,255,255,.35)">▾</span>
             </div>
             <div style="display:none;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-top:none;border-radius:0 0 10px 10px;padding:12px 14px">
-              <p style="font-size:13px;color:#8da0ba;line-height:1.65;margin:0">頻道以「把學習科學搬進真實讀書場景」為目標，被學生、老師和教育工作者評為「目前台灣最有深度的學習方法頻道」。</p>
+              <p style="font-size:13px;color:#8da0ba;line-height:1.65;margin:0 0 10px">把認知科學帶進真實讀書場景，兩大主軸：</p>
+              <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:10px">
+                <div style="background:rgba(255,255,255,.05);border-radius:8px;padding:8px 10px">
+                  <div style="font-size:11px;font-weight:800;color:var(--accent);letter-spacing:1px;margin-bottom:5px">學習科學</div>
+                  <div style="font-size:12px;color:#8da0ba;line-height:1.6">動機心理學（SDT · Self-Efficacy）·  後設認知計畫 · 費曼／心智圖讀書法</div>
+                </div>
+                <div style="background:rgba(255,255,255,.05);border-radius:8px;padding:8px 10px">
+                  <div style="font-size:11px;font-weight:800;color:#60a5fa;letter-spacing:1px;margin-bottom:5px">學測英文</div>
+                  <div style="font-size:12px;color:#8da0ba;line-height:1.6">作文架構 · Topic Sentence · 連貫性 · 英文 15 級分完整計畫</div>
+                </div>
+              </div>
+              <a href="https://www.youtube.com/@grand-road-to-learning" target="_blank" style="display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--accent);text-decoration:none;font-weight:700">▶ 看頻道</a>
             </div>
           </div>
 
@@ -976,18 +989,23 @@
               <span style="font-size:10px;color:rgba(255,255,255,.35)">▾</span>
             </div>
             <div style="display:none;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-top:none;border-radius:0 0 10px 10px;padding:12px 14px">
-              <p style="font-size:13px;color:#8da0ba;line-height:1.65;margin:0">包含記憶工具、學習計畫模板等產品，目標讓學習方法從「看了懂」真的變成「用起來」。</p>
+              <p style="font-size:13px;color:#8da0ba;line-height:1.65;margin:0 0 10px">兩款工具，讓學習方法從「知道」真的變成「用起來」：</p>
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <div style="background:rgba(255,255,255,.05);border-radius:8px;padding:8px 10px">
+                  <div style="font-size:11px;font-weight:800;color:#34d399;letter-spacing:1px;margin-bottom:4px">英文單字 App</div>
+                  <div style="font-size:12px;color:#8da0ba;line-height:1.6">依 108 課綱分 6 級，三階段學習——認識 → 深化 → AI 引導個人化產出。Google Gemini 驅動，學習計畫 + 複習系統一體。</div>
+                </div>
+                <div style="background:rgba(255,255,255,.05);border-radius:8px;padding:8px 10px">
+                  <div style="font-size:11px;font-weight:800;color:#60a5fa;letter-spacing:1px;margin-bottom:4px">英文寫作平台</div>
+                  <div style="font-size:12px;color:#8da0ba;line-height:1.6">AI 批改作文（Pyramid 架構）、文法學習區、翻譯工具，會員制持續精進。</div>
+                </div>
+              </div>
             </div>
           </div>
 
         </div>
 
-        <div style="display:flex;align-items:center;gap:8px;background:rgba(31,157,107,.12);border:1px solid rgba(31,157,107,.3);border-radius:10px;padding:10px 14px;margin-bottom:16px">
-          <span style="color:#6ee7b7;font-size:14px;font-weight:900">✓</span>
-          <span style="font-size:13.5px;color:#a8d9c4;font-weight:700;line-height:1.4">2026 年正式加入得勝者文教</span>
-        </div>
-
-        <div>
+        <div style="margin-bottom:12px">
           <button onclick="this.nextElementSibling.classList.toggle('cred-open');this.classList.toggle('cred-btn-open')"
             style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:10px 16px;color:#c7d2e2;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;width:100%;text-align:left;display:flex;justify-content:space-between;align-items:center;transition:background .18s">
             🏛️ 台大相關背景
@@ -998,6 +1016,11 @@
             <div style="display:flex;gap:12px;align-items:flex-start"><span style="flex-shrink:0;font-size:15px">🎓</span><span style="font-size:13.5px;color:#c7d2e2;line-height:1.65">與<strong style="color:#fff">台大育成中心</strong>合作投 U-Start 企劃</span></div>
             <div style="display:flex;gap:12px;align-items:flex-start"><span style="flex-shrink:0;font-size:15px">🎤</span><span style="font-size:13.5px;color:#c7d2e2;line-height:1.65">顏競廷曾任台大<strong style="color:#fff">「英文即席演講溝通術」「框架外思考：五分鐘英文講堂」</strong>課程助教，共兩年</span></div>
           </div>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:8px;background:rgba(31,157,107,.12);border:1px solid rgba(31,157,107,.3);border-radius:10px;padding:10px 14px">
+          <span style="color:#6ee7b7;font-size:14px;font-weight:900">✓</span>
+          <span style="font-size:13.5px;color:#a8d9c4;font-weight:700;line-height:1.4">2026 年正式加入得勝者文教</span>
         </div>
       </div>
 

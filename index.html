@@ -237,8 +237,8 @@
   /* ── Guide Section ── */
   .guide-section{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   .guide-intro{text-align:center;margin-bottom:52px}
-  .guide-body{display:grid;grid-template-columns:1.2fr 1fr;gap:36px;align-items:start}
-  .guide-main-card{background:var(--ink);color:#fff;border-radius:var(--radius);padding:40px;box-sizing:border-box}
+  .guide-body{display:grid;grid-template-columns:1.2fr 1fr;gap:36px;align-items:start;min-width:0}
+  .guide-main-card{background:var(--ink);color:#fff;border-radius:var(--radius);padding:40px;box-sizing:border-box;overflow:hidden;min-width:0}
   .guide-main-role{display:inline-block;font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;background:rgba(255,107,53,.18);color:#ffd4c0;padding:5px 12px;border-radius:999px;margin-bottom:18px}
   .guide-main-logo{font-size:44px;line-height:1;margin-bottom:14px}
   .guide-main-title{font-size:28px;font-weight:900;color:#fff;margin-bottom:18px;line-height:1.2}
@@ -918,21 +918,40 @@
 
       <div class="guide-main-card">
         <div class="guide-main-role">課程設計者 · 85% 內容</div>
-        <div class="guide-main-logo">
-          <img src="Logo.jpg" alt="大腦駭客" style="width:72px;height:72px;object-fit:cover;border-radius:14px;display:block">
+
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:22px">
+          <img src="Logo.jpg" alt="大腦駭客" style="width:64px;height:64px;object-fit:cover;border-radius:12px;flex-shrink:0">
+          <div>
+            <div class="guide-main-title" style="margin-bottom:6px">大腦駭客</div>
+            <span style="font-size:12px;font-weight:700;background:rgba(255,255,255,.1);color:#bcc8da;padding:3px 10px;border-radius:999px;letter-spacing:.5px">2023 · 台大心理系創立</span>
+          </div>
         </div>
-        <div class="guide-main-title">大腦駭客</div>
-        <p>大腦駭客於 2023 年成立。當時，在讀<strong>台大心理系</strong>的創辦人顏競廷，開始研究一個問題：</p>
-        <blockquote class="guide-main-quote" style="margin-top:14px;margin-bottom:18px;font-size:16.5px;font-weight:800;font-style:normal;color:#fff;border-left-color:var(--accent)">「為什麼台灣學生補習、努力，成績卻沒有起色？」</blockquote>
-        <p>他們發現，不是學生不夠努力，而是<strong>讀書方法的問題！</strong></p>
-        <p>過去三年，大腦駭客團隊：</p>
-        <ul style="margin:10px 0 16px;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:8px">
-          <li style="display:flex;gap:10px;align-items:flex-start;color:#c7d2e2;font-size:14.5px;line-height:1.65"><span style="color:var(--accent);font-weight:900;flex-shrink:0">→</span><span>研發出一套以認知科學為根據的「讀書方法系統」</span></li>
-          <li style="display:flex;gap:10px;align-items:flex-start;color:#c7d2e2;font-size:14.5px;line-height:1.65"><span style="color:var(--accent);font-weight:900;flex-shrink:0">→</span><span>經營學習方法頻道，被認為是「市面上做學習方法<strong style="color:#fff">最到位</strong>的頻道」</span></li>
-          <li style="display:flex;gap:10px;align-items:flex-start;color:#c7d2e2;font-size:14.5px;line-height:1.65"><span style="color:var(--accent);font-weight:900;flex-shrink:0">→</span><span>設計多種學習 APP</span></li>
-        </ul>
-        <p>並於 2026 年初<strong>正式併入得勝者文教</strong>。</p>
-        <div style="margin-top:20px">
+
+        <blockquote class="guide-main-quote" style="font-size:16px;font-weight:800;font-style:normal;color:#fff;border-left-color:var(--accent);margin:0 0 16px">「為什麼台灣學生補習、努力，成績卻沒有起色？」</blockquote>
+
+        <p style="margin-bottom:20px">他們發現，不是學生不夠努力，而是<strong>讀書方法的問題！</strong></p>
+
+        <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:20px">
+          <div style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:10px 14px">
+            <span style="font-size:16px;flex-shrink:0">🧠</span>
+            <span style="font-size:14px;color:#c7d2e2;line-height:1.5">認知科學讀書方法系統</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:10px 14px">
+            <span style="font-size:16px;flex-shrink:0">📹</span>
+            <span style="font-size:14px;color:#c7d2e2;line-height:1.5">學習方法頻道，被認為是<strong style="color:#fff">市面上最到位</strong>的頻道</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:10px 14px">
+            <span style="font-size:16px;flex-shrink:0">📱</span>
+            <span style="font-size:14px;color:#c7d2e2;line-height:1.5">設計多種學習 APP</span>
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:8px;background:rgba(31,157,107,.12);border:1px solid rgba(31,157,107,.3);border-radius:10px;padding:10px 14px;margin-bottom:16px">
+          <span style="color:#6ee7b7;font-size:14px;font-weight:900">✓</span>
+          <span style="font-size:13.5px;color:#a8d9c4;font-weight:700;line-height:1.4">2026 年正式加入得勝者文教</span>
+        </div>
+
+        <div>
           <button onclick="this.nextElementSibling.classList.toggle('cred-open');this.classList.toggle('cred-btn-open')"
             style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:10px 16px;color:#c7d2e2;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;width:100%;text-align:left;display:flex;justify-content:space-between;align-items:center;transition:background .18s">
             🏛️ 台大相關背景
@@ -1056,8 +1075,13 @@
 
     <div class="form-success" id="signupSuccess">
       <div style="font-size:44px;margin-bottom:16px">✅</div>
-      <h3 style="font-size:24px;font-weight:900;color:var(--green);margin-bottom:10px">報名成功！</h3>
-      <p style="font-size:16px;color:var(--ink-soft);line-height:1.7">我們已收到你的報名資料，<br>稍後將由專人與您聯繫確認梯次。</p>
+      <h3 style="font-size:22px;font-weight:900;color:var(--green);margin-bottom:10px">報名資料已收到！</h3>
+      <p style="font-size:16px;color:var(--ink-soft);line-height:1.75;margin-bottom:24px">下一步：加入官方 LINE，<br>傳 <strong style="color:var(--ink)">「已報名」</strong>，我們會傳匯款資料給你。</p>
+      <a href="【LINE 連結】" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:10px;background:#06C755;color:#fff;font-size:16px;font-weight:900;padding:14px 28px;border-radius:999px;text-decoration:none;max-width:280px;margin:0 auto">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2C6.03 2 2 5.63 2 10.1c0 3.97 3.52 7.3 8.28 7.93.32.07.76.21.87.49.1.25.07.64.03.9l-.14.85c-.04.25-.2 1 .87.54 1.08-.45 5.81-3.42 7.93-5.85C21.25 13.04 22 11.64 22 10.1 22 5.63 17.97 2 11 2z" fill="white"/><path d="M9.1 8.3H8.2a.3.3 0 0 0-.3.3v3.8c0 .17.14.3.3.3h.9c.17 0 .3-.13.3-.3V8.6a.3.3 0 0 0-.3-.3zM14.1 8.3h-.9a.3.3 0 0 0-.3.3v2.26L11.3 8.45a.34.34 0 0 0-.26-.15h-.9a.3.3 0 0 0-.3.3v3.8c0 .17.13.3.3.3h.9c.16 0 .3-.13.3-.3V10.1l1.63 2.43c.05.08.14.12.22.12h.9c.17 0 .3-.13.3-.3V8.6a.3.3 0 0 0-.3-.3z" fill="#06C755"/></svg>
+        加入官方 LINE
+      </a>
+      <p style="font-size:12px;color:var(--ink-soft);margin-top:14px">匯款後即確認座位・名額有限</p>
     </div>
   </div>
 </section>
@@ -1201,7 +1225,7 @@ function switchUTab(id, btn) {
   btn.classList.add('active');
 }
 // Signup form — 把 GS_ENDPOINT 換成你的 Google Apps Script 網址
-const GS_ENDPOINT = '【Google Apps Script 網址】';
+const GS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzl3U9gvIztl_VJjyeurJDLIFZkKk5IZ1Pj9u7qHrEdzFwPBKo2ghJpP0jDZ2bmh2qKtA/exec';
 (function(){
   var form = document.getElementById('signupForm');
   var success = document.getElementById('signupSuccess');

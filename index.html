@@ -17,12 +17,12 @@
     --radius:18px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;overflow-x:hidden}
   body{
     font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
     color:var(--ink);background:var(--cream);line-height:1.75;
     -webkit-font-smoothing:antialiased;
-    word-break:keep-all;overflow-wrap:break-word;
+    word-break:keep-all;overflow-wrap:break-word;overflow-x:hidden;
   }
   .wrap{max-width:1040px;margin:0 auto;padding:0 22px}
   section{padding:72px 0}
@@ -326,11 +326,11 @@
   }
 
   /* signup form */
-  .signup-form{max-width:520px;margin:36px auto 0;display:grid;gap:18px;background:#fff;border-radius:var(--radius);padding:40px 36px;border:1px solid var(--line)}
+  .signup-form{max-width:520px;width:100%;margin:36px auto 0;display:grid;gap:18px;background:#fff;border-radius:var(--radius);padding:40px 36px;border:1px solid var(--line)}
   .form-field{display:grid;gap:8px;text-align:left}
   .form-field label{font-size:14px;font-weight:700;color:var(--ink)}
   .form-field .req{color:#c0392b}
-  .form-field input,.form-field select{font:inherit;font-size:16px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);transition:border-color .18s,box-shadow .18s}
+  .form-field input,.form-field select{font:inherit;font-size:16px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);transition:border-color .18s,box-shadow .18s;width:100%}
   .form-field input:focus,.form-field select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(255,107,53,.12)}
   .form-btn-full{width:100%;padding:16px;font-size:16px;font-weight:900}
   .form-divider{display:flex;align-items:center;gap:12px;margin:2px 0}
@@ -391,6 +391,10 @@
   /* final */
   .final{text-align:center}
   .final h2{margin-bottom:10px}
+
+  /* 手機專屬斷行：桌機隱藏，手機顯示 */
+  .br-m{display:none}
+  @media(max-width:760px){.br-m{display:inline}}
 
   footer{background:#0f0a0f;color:rgba(255,255,255,.35);padding:32px 24px;text-align:center;font-size:13px;border-top:1px solid rgba(255,255,255,.06)}
   footer a{color:rgba(255,255,255,.5);text-decoration:none}
@@ -666,7 +670,7 @@
         </div>
         <div class="arch-card-body">
           <h3>又會讀書、又會玩</h3>
-          <p>既有讀書的動力，也顧到生活其他面向！<br>不死讀書，對自己的未來有規劃</p>
+          <p>既有讀書的動力，<br class="br-m">也顧到生活其他面向！<br>不死讀書，對自己的未來有規劃</p>
           <span class="arch-verdict verdict-good">✓ 成績好＋心情也好，這是你的目標</span>
         </div>
       </div>
@@ -680,7 +684,7 @@
         <div class="arch-card-body">
           <h3>沒日沒夜K書</h3>
           <p>上學認真、放學補習、假日K書<br>
-          高中就是要努力！才能取得美好未來的門票！</p>
+          高中就是要努力！<br class="br-m">才能取得美好未來的門票！</p>
           <div class="arch-card-twist" style="border-left-color:#fcd34d">⚠️ 但是花越多時間讀書... 成績真的就會越好嗎... ？</div>
         </div>
       </div>
@@ -690,7 +694,7 @@
     <div class="research-block">
       <div class="research-label">然而， PISA 2018 的研究發現...</div>
       <h3 class="research-h3">不是越努力，成績就越好！</h3>
-      <p class="research-desc">學者指出：「讀更久，並不一定會考更好」！<br>學習時間與成績，很可能呈現倒 U 型關係 <span style="font-size:14px;color:#a09080">(Liu et al., 2023)</span></p>
+      <p class="research-desc">學者指出：「讀更久，<br class="br-m">並不一定會考更好」！<br>學習時間與成績，很可能呈現倒 U 型關係 <span style="font-size:14px;color:#a09080">(Liu et al., 2023)</span></p>
 
       <div class="u-charts" style="grid-template-columns:1fr;max-width:560px;margin:0 auto">
 
@@ -923,7 +927,7 @@
           <img src="Logo.jpg" alt="大腦駭客" style="width:64px;height:64px;object-fit:cover;border-radius:12px;flex-shrink:0">
           <div>
             <div class="guide-main-title" style="margin-bottom:6px">大腦駭客</div>
-            <span style="font-size:12px;font-weight:700;background:rgba(255,255,255,.1);color:#bcc8da;padding:3px 10px;border-radius:999px;letter-spacing:.5px">2023 · 台大心理系創立</span>
+            <span style="font-size:12px;font-weight:700;background:rgba(255,255,255,.1);color:#bcc8da;padding:3px 10px;border-radius:999px;letter-spacing:.5px">2023 · 台大心理系學生創立</span>
           </div>
         </div>
 
@@ -932,18 +936,50 @@
         <p style="margin-bottom:20px">他們發現，不是學生不夠努力，而是<strong>讀書方法的問題！</strong></p>
 
         <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:20px">
-          <div style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:10px 14px">
-            <span style="font-size:16px;flex-shrink:0">🧠</span>
-            <span style="font-size:14px;color:#c7d2e2;line-height:1.5">認知科學讀書方法系統</span>
+
+          <div>
+            <div style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:10px 14px;cursor:pointer"
+                 onclick="var d=this.nextElementSibling;d.style.display=d.style.display==='block'?'none':'block'">
+              <span style="font-size:16px;flex-shrink:0">🧠</span>
+              <span style="font-size:14px;color:#c7d2e2;line-height:1.5;flex:1">研發認知科學讀書方法系統</span>
+              <span style="font-size:10px;color:rgba(255,255,255,.35)">▾</span>
+            </div>
+            <div style="display:none;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-top:none;border-radius:0 0 10px 10px;padding:12px 14px">
+              <p style="font-size:13px;color:#8da0ba;line-height:1.65;margin:0 0 10px">以 Zimmerman <strong style="color:#c7d2e2">自我調節學習（SRL）</strong>理論為框架，設計四大模組：</p>
+              <div style="display:flex;flex-direction:column;gap:6px">
+                <div style="font-size:12.5px;color:#8da0ba;display:flex;gap:8px"><span style="color:var(--accent);flex-shrink:0">①</span><span><strong style="color:#c7d2e2">預習</strong>——對應「規劃階段」，讓你帶著目的進教室</span></div>
+                <div style="font-size:12.5px;color:#8da0ba;display:flex;gap:8px"><span style="color:var(--accent);flex-shrink:0">②</span><span><strong style="color:#c7d2e2">費曼學習法</strong>——主動提取（Active Recall），打破「看了以為懂」的假象</span></div>
+                <div style="font-size:12.5px;color:#8da0ba;display:flex;gap:8px"><span style="color:var(--accent);flex-shrink:0">③</span><span><strong style="color:#c7d2e2">心智圖</strong>——後設認知整理，把零散的知識連成系統</span></div>
+                <div style="font-size:12.5px;color:#8da0ba;display:flex;gap:8px"><span style="color:var(--accent);flex-shrink:0">④</span><span><strong style="color:#c7d2e2">寫題與訂正</strong>——自我反思，把錯題變成最有價值的學習資源</span></div>
+              </div>
+              <p style="font-size:12px;color:rgba(255,255,255,.3);margin:10px 0 0;line-height:1.5">台灣補習班教的是知識內容，我們教的是「怎麼學」——這才是成績差距的真正來源。</p>
+            </div>
           </div>
-          <div style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:10px 14px">
-            <span style="font-size:16px;flex-shrink:0">📹</span>
-            <span style="font-size:14px;color:#c7d2e2;line-height:1.5">學習方法頻道，被認為是<strong style="color:#fff">市面上最到位</strong>的頻道</span>
+
+          <div>
+            <div style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:10px 14px;cursor:pointer"
+                 onclick="var d=this.nextElementSibling;d.style.display=d.style.display==='block'?'none':'block'">
+              <span style="font-size:16px;flex-shrink:0">📹</span>
+              <span style="font-size:14px;color:#c7d2e2;line-height:1.5;flex:1">經營學習方法頻道，被認為是<strong style="color:#fff">市面上最到位</strong>的頻道</span>
+              <span style="font-size:10px;color:rgba(255,255,255,.35)">▾</span>
+            </div>
+            <div style="display:none;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-top:none;border-radius:0 0 10px 10px;padding:12px 14px">
+              <p style="font-size:13px;color:#8da0ba;line-height:1.65;margin:0">頻道以「把學習科學搬進真實讀書場景」為目標，被學生、老師和教育工作者評為「目前台灣最有深度的學習方法頻道」。</p>
+            </div>
           </div>
-          <div style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:10px 14px">
-            <span style="font-size:16px;flex-shrink:0">📱</span>
-            <span style="font-size:14px;color:#c7d2e2;line-height:1.5">設計多種學習 APP</span>
+
+          <div>
+            <div style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:10px 14px;cursor:pointer"
+                 onclick="var d=this.nextElementSibling;d.style.display=d.style.display==='block'?'none':'block'">
+              <span style="font-size:16px;flex-shrink:0">📱</span>
+              <span style="font-size:14px;color:#c7d2e2;line-height:1.5;flex:1">設計多種學習 APP</span>
+              <span style="font-size:10px;color:rgba(255,255,255,.35)">▾</span>
+            </div>
+            <div style="display:none;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-top:none;border-radius:0 0 10px 10px;padding:12px 14px">
+              <p style="font-size:13px;color:#8da0ba;line-height:1.65;margin:0">包含記憶工具、學習計畫模板等產品，目標讓學習方法從「看了懂」真的變成「用起來」。</p>
+            </div>
           </div>
+
         </div>
 
         <div style="display:flex;align-items:center;gap:8px;background:rgba(31,157,107,.12);border:1px solid rgba(31,157,107,.3);border-radius:10px;padding:10px 14px;margin-bottom:16px">
@@ -1000,7 +1036,7 @@
     <div class="ref">
       <span class="eyebrow">揪好友同隊</span>
       <h2>一個人來有點怕？<br>那就揪上你最好的朋友。</h2>
-      <p>揪一位好友一起來，保證分到同一隊。<br>最棒的暑假，本來就該跟最對的人一起過。</p>
+      <p>揪一位好友一起來，保證分到同一隊。<br>最棒的暑假，<br class="br-m">本來就該跟最對的人一起過。</p>
       <a href="#signup" class="btn btn-ghost">揪好友一起報名</a>
     </div>
   </div>

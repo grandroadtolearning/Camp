@@ -67,6 +67,7 @@
   .fact small{color:rgba(255,255,255,.5);font-weight:600}
   .cta-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
   .cta-note{font-size:14px;color:rgba(255,255,255,.42);margin-top:10px}
+  .hero-mobile-info{display:none}
   .hero .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.4)}
   .hero .btn-ghost:hover{background:rgba(255,255,255,.1)}
   @media(max-width:760px){
@@ -75,6 +76,8 @@
     .hero-text{padding:36px 22px 18px}
     .hero-inner{max-width:100%}
     .hero .facts,.hero .cta-row,.hero .cta-note{display:none}
+    .hero-mobile-info{display:flex;flex-direction:column;gap:8px;margin-top:18px}
+    .hero-mobile-info-row{font-size:13px;color:rgba(255,255,255,.85);font-weight:700;line-height:1.5;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:8px 16px;display:inline-block;width:fit-content}
   }
 
   /* ─── NEW PAIN SECTION ─── */
@@ -264,6 +267,7 @@
   .cred-btn-open{background:rgba(255,255,255,.13) !important}
   .cred-btn-open .cred-arrow{transform:rotate(180deg)}
   @media(max-width:760px){
+    .value-grid{grid-template-columns:1fr!important}
     .guide-body{grid-template-columns:1fr;gap:20px}
     .guide-main-card{padding:28px 22px}
     .guide-main-stat{gap:8px}
@@ -433,7 +437,7 @@
 
 <div class="bar">
   <div class="wrap">
-    <div class="brand">得勝者文教 · <span>三升一</span></div>
+    <div class="brand">讀書方法營 · <span>三升一</span></div>
     <a href="#signup" class="btn btn-primary">立即搶名額</a>
   </div>
 </div>
@@ -618,12 +622,18 @@
         <div class="fact"><b>30 人/梯</b><small>限額招生</small></div>
         <div class="fact"><b>第一梯</b><small>7/16（四）– 7/17（五）</small></div>
         <div class="fact"><b>第二梯</b><small>7/20（一）– 7/21（二）</small></div>
+        <div class="fact" style="grid-column:1/-1"><b style="font-size:15px">📍 得勝者文教</b><small>台北市中正區中山南路 2 巷 5 號</small></div>
       </div>
       <div class="cta-row">
         <a href="【報名表單連結】" class="btn btn-primary">立即填表報名</a>
         <a href="#days" class="btn btn-ghost">了解課程內容 ↓</a>
       </div>
       <p class="cta-note">名額有限，填表即確認座位</p>
+      <div class="hero-mobile-info">
+        <div class="hero-mobile-info-row">🗓️ 第一梯 7/16（四）– 7/17（五）</div>
+        <div class="hero-mobile-info-row">🗓️ 第二梯 7/20（一）– 7/21（二）</div>
+        <div class="hero-mobile-info-row">📍 地點：台北得勝者文教</div>
+      </div>
     </div>
   </div>
 
@@ -632,6 +642,36 @@
 <!-- ══════════════════════════════════════════════
      NEW PAIN SECTION
      ══════════════════════════════════════════════ -->
+<section style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:48px">
+      <span class="eyebrow">兩天後你將</span>
+      <h2 style="margin-top:14px">面對上高中，不再焦慮！<br>我們幫你整裝待發</h2>
+    </div>
+    <div class="value-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+
+      <div style="background:var(--cream);border-radius:var(--radius);padding:32px 28px">
+        <div style="width:52px;height:52px;border-radius:50%;background:rgba(255,107,53,.12);display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:18px">📋</div>
+        <h3 style="font-size:19px;font-weight:900;color:var(--ink);margin-bottom:10px;line-height:1.3">一份開學就能用的計畫</h3>
+        <p style="font-size:15px;color:var(--ink-soft);line-height:1.75">兩天結束，手上有一份自己做的高一學習計畫，開學第一天就能執行。</p>
+      </div>
+
+      <div style="background:var(--cream);border-radius:var(--radius);padding:32px 28px">
+        <div style="width:52px;height:52px;border-radius:50%;background:rgba(255,107,53,.12);display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:18px">⚡</div>
+        <h3 style="font-size:19px;font-weight:900;color:var(--ink);margin-bottom:10px;line-height:1.3">少一半時間，雙倍成效</h3>
+        <p style="font-size:15px;color:var(--ink-soft);line-height:1.75">熟悉讀書方法後，比同學少一半時間讀書，學習成效卻加倍。</p>
+      </div>
+
+      <div style="background:var(--cream);border-radius:var(--radius);padding:32px 28px">
+        <div style="width:52px;height:52px;border-radius:50%;background:rgba(255,107,53,.12);display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:18px">📖</div>
+        <h3 style="font-size:19px;font-weight:900;color:var(--ink);margin-bottom:10px;line-height:1.3">單字量不再是問題</h3>
+        <p style="font-size:15px;color:var(--ink-soft);line-height:1.75">習得以認知科學為基底的記憶方法，讓你輕鬆應付高中英文單字量暴增。</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
     <span class="eyebrow">高中三年，不是讀越多越好——但也不是隨便玩就沒事。</span>
@@ -857,9 +897,6 @@
         <!-- DAY 1 -->
         <div class="sch-card">
           <div class="sch-card-icon"><div class="sch-card-num">01</div></div>
-          <div>
-            <div class="sch-card-day">第一梯 7/16（四）｜第二梯 7/20（一）</div>
-          </div>
           <div class="sch-card-title">破冰・組隊・讀書方法</div>
           <div>
             <div style="font-size:10.5px;font-weight:800;letter-spacing:1.5px;color:var(--accent);margin-bottom:6px">上午</div>
@@ -878,9 +915,6 @@
         <!-- DAY 2 -->
         <div class="sch-card">
           <div class="sch-card-icon"><div class="sch-card-num">02</div></div>
-          <div>
-            <div class="sch-card-day d2">第一梯 7/17（五）｜第二梯 7/21（二）</div>
-          </div>
           <div class="sch-card-title">讀書方法・計畫・結業</div>
           <div>
             <div style="font-size:10.5px;font-weight:800;letter-spacing:1.5px;color:var(--accent-2);margin-bottom:6px">上午</div>
@@ -1014,7 +1048,7 @@
           <div style="display:none;flex-direction:column;gap:10px;padding:12px 8px 4px;overflow:hidden">
             <div style="display:flex;gap:10px;align-items:flex-start"><span style="flex-shrink:0;font-size:13.5px;line-height:1.65">🏛️</span><span style="font-size:13.5px;color:#c7d2e2;line-height:1.65;min-width:0;overflow-wrap:break-word;flex:1">曾通過<strong style="color:#fff">台大創業孵化器（車庫）</strong>的審核進入決選</span></div>
             <div style="display:flex;gap:10px;align-items:flex-start"><span style="flex-shrink:0;font-size:13.5px;line-height:1.65">🎓</span><span style="font-size:13.5px;color:#c7d2e2;line-height:1.65;min-width:0;overflow-wrap:break-word;flex:1">與<strong style="color:#fff">台大育成中心</strong>合作投 U-Start 企劃</span></div>
-            <div style="display:flex;gap:10px;align-items:flex-start"><span style="flex-shrink:0;font-size:13.5px;line-height:1.65">🎤</span><span style="font-size:13.5px;color:#c7d2e2;line-height:1.65;min-width:0;overflow-wrap:break-word;flex:1">成員曾任台大寫作教學中心教學助理兩年</span></div>
+            <div style="display:flex;gap:10px;align-items:flex-start"><span style="flex-shrink:0;font-size:13.5px;line-height:1.65">🎤</span><span style="font-size:13.5px;color:#c7d2e2;line-height:1.65;min-width:0;overflow-wrap:break-word;flex:1">成員曾任<strong style="color:#fff">台大寫作教學中心</strong>教學助理兩年</span></div>
           </div>
         </div>
 
@@ -1026,9 +1060,13 @@
 
       <div class="guide-right">
         <div class="guide-org">
-          <div>
-            <div class="guide-org-label">主辦機構</div>
-            <div class="guide-org-name">得勝者文教</div>
+          <div style="display:flex;align-items:flex-start;gap:10px">
+            <span style="font-size:20px;margin-top:2px">📍</span>
+            <div>
+              <div class="guide-org-label">地點</div>
+              <div class="guide-org-name">得勝者文教</div>
+              <div style="font-size:13px;color:var(--ink-soft);margin-top:4px">台北市中正區中山南路 2 巷 5 號</div>
+            </div>
           </div>
         </div>
       </div>
@@ -1129,7 +1167,7 @@
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2C6.03 2 2 5.63 2 10.1c0 3.97 3.52 7.3 8.28 7.93.32.07.76.21.87.49.1.25.07.64.03.9l-.14.85c-.04.25-.2 1 .87.54 1.08-.45 5.81-3.42 7.93-5.85C21.25 13.04 22 11.64 22 10.1 22 5.63 17.97 2 11 2z" fill="white"/><path d="M9.1 8.3H8.2a.3.3 0 0 0-.3.3v3.8c0 .17.14.3.3.3h.9c.17 0 .3-.13.3-.3V8.6a.3.3 0 0 0-.3-.3zM14.1 8.3h-.9a.3.3 0 0 0-.3.3v2.26L11.3 8.45a.34.34 0 0 0-.26-.15h-.9a.3.3 0 0 0-.3.3v3.8c0 .17.13.3.3.3h.9c.16 0 .3-.13.3-.3V10.1l1.63 2.43c.05.08.14.12.22.12h.9c.17 0 .3-.13.3-.3V8.6a.3.3 0 0 0-.3-.3z" fill="#06C755"/></svg>
         LINE 直接諮詢
       </a>
-      <p class="form-privacy">送出即表示同意得勝者文教就本次活動與您聯繫。</p>
+      <p class="form-privacy">送出即表示同意大腦駭客就本次活動與您聯繫。</p>
     </form>
 
     <div class="form-success" id="signupSuccess">

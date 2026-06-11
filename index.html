@@ -3,29 +3,60 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>讀書方法營｜得勝者文教 三升一</title>
-<meta name="description" content="國三升高一的暑假，跟好友一起走進台大、組成小隊，把『高中怎麼讀』提前玩懂。三天帶走一份屬於你的高一學習計畫。" />
+<title>讀書方法營｜大腦駭客</title>
+<meta name="description" content="國三升高一的暑假，帶你用認知科學搞懂高中怎麼讀。兩天帶走一套讀書方法和一份開學就能用的學習計畫。" />
 <style>
   :root{
     --ink:#16233a;
+    --ink-rgb:22,35,58;
     --ink-soft:#3a4a63;
-    --accent:#ff6b35;
+    --accent:#9F94D2;
+    --accent-rgb:159,148,210;
     --accent-2:#2f6bff;
-    --cream:#fff7f0;
-    --line:#e7ddd3;
+    --accent2-rgb:47,107,255;
+    --cream:#f5f3ff;
+    --line:#e4d9f5;
     --green:#1f9d6b;
     --radius:18px;
+    --font:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
   }
+  /* ── Visual directions (toggle via Tweaks) ── */
+  body.theme-indigo{
+    --ink:#1b2433;--ink-rgb:27,36,51;--ink-soft:#414b60;
+    --accent:#6f78d8;--accent-rgb:111,120,216;
+    --accent-2:#2f6bff;--accent2-rgb:47,107,255;
+    --cream:#f1f3fb;--line:#dde1f3;
+  }
+  body.theme-coral{
+    --ink:#2a2018;--ink-rgb:42,32,24;--ink-soft:#5c4f44;
+    --accent:#d77a4e;--accent-rgb:215,122,78;
+    --accent-2:#e08a36;--accent2-rgb:224,138,54;
+    --cream:#faf4ee;--line:#eee0d4;
+  }
+  body.rad-mid{--radius:12px}
+  body.rad-sharp{--radius:6px}
+  /* placeholder for missing photos */
+  .ph{display:flex;align-items:center;justify-content:center;text-align:center;
+    background:repeating-linear-gradient(45deg,
+      color-mix(in srgb,var(--accent) 9%,#fff),color-mix(in srgb,var(--accent) 9%,#fff) 11px,
+      color-mix(in srgb,var(--accent) 17%,#fff) 11px,color-mix(in srgb,var(--accent) 17%,#fff) 22px);
+    color:color-mix(in srgb,var(--accent) 78%,#000);
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;font-weight:700;
+    letter-spacing:.5px;line-height:1.6;border:1px solid var(--line)}
+  .ph-logo{font-family:var(--font);font-size:30px;font-weight:900;color:#fff;
+    background:linear-gradient(135deg,var(--accent),color-mix(in srgb,var(--accent) 55%,var(--ink)))}
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth;overflow-x:hidden}
   body{
-    font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+    font-family:var(--font);
     color:var(--ink);background:var(--cream);line-height:1.75;
     -webkit-font-smoothing:antialiased;
     word-break:keep-all;overflow-wrap:break-word;overflow-x:hidden;
+    transition:background-color .45s ease,color .45s ease;
   }
   .wrap{max-width:1040px;margin:0 auto;padding:0 22px}
   section{padding:72px 0}
+  section[id]{scroll-margin-top:74px}
   h2{font-size:clamp(26px,4.4vw,40px);line-height:1.3;letter-spacing:.5px}
   .eyebrow{display:inline-block;font-size:14px;font-weight:700;letter-spacing:2px;
     color:var(--accent);background:#fff;border:1px solid var(--line);
@@ -33,20 +64,22 @@
   .lead{font-size:18px;color:var(--ink-soft);margin-top:16px}
 
   /* top bar */
-  .bar{position:sticky;top:0;z-index:50;background:rgba(255,247,240,.92);
-    backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .bar{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--cream) 82%,transparent);
+    backdrop-filter:blur(12px) saturate(1.4);-webkit-backdrop-filter:blur(12px) saturate(1.4);border-bottom:1px solid var(--line)}
   .bar .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
   .brand{font-weight:900;letter-spacing:1px}
   .brand span{color:var(--accent)}
   .btn{display:inline-block;font-weight:800;text-decoration:none;border-radius:999px;
     padding:13px 26px;transition:transform .15s ease, box-shadow .15s ease;border:0;cursor:pointer}
-  .btn-primary{background:var(--accent);color:#fff;box-shadow:0 8px 20px rgba(255,107,53,.35)}
-  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(255,107,53,.45)}
+  .btn-primary{background:var(--accent);color:#fff;box-shadow:0 8px 20px rgba(var(--accent-rgb),.35)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(var(--accent-rgb),.45)}
   .btn-ghost{background:#fff;color:var(--ink);border:1.5px solid var(--ink)}
   .bar .btn{padding:10px 20px;font-size:15px}
 
   /* hero — full bleed */
-  .hero{padding:0;position:relative;min-height:580px;background:#16233a;overflow:hidden;display:flex;align-items:center}
+  .hero{padding:0;position:relative;min-height:580px;background:var(--ink);overflow:hidden;display:flex;align-items:center}
+  body.no-anim .hero-anim{display:none}
+  body.no-anim .hero{background:radial-gradient(120% 110% at 82% 24%,color-mix(in srgb,var(--accent) 26%,var(--ink)) 0%,var(--ink) 58%)}
   .hero-anim{position:absolute;inset:0;width:100%;height:100%}
   .hero-anim svg{position:absolute;inset:0;width:100%;height:100%;display:block}
   .anim-mobile{display:none!important}
@@ -54,7 +87,7 @@
     .anim-desktop{display:none!important}
     .anim-mobile{display:block!important}
   }
-  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(22,35,58,.95) 0%,rgba(22,35,58,.90) 45%,rgba(22,35,58,.15) 68%,transparent 82%);pointer-events:none}
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(var(--ink-rgb),.95) 0%,rgba(var(--ink-rgb),.90) 45%,rgba(var(--ink-rgb),.15) 68%,transparent 82%);pointer-events:none}
   .hero-text{position:relative;z-index:2;width:100%;max-width:1040px;margin:0 auto;padding:80px 22px}
   .hero-inner{max-width:500px}
   .hero h1{font-size:clamp(38px,6.8vw,66px);line-height:1.1;letter-spacing:.5px;margin:14px 0 18px;color:#fff}
@@ -67,18 +100,42 @@
   .fact small{color:rgba(255,255,255,.5);font-weight:600}
   .cta-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
   .cta-note{font-size:14px;color:rgba(255,255,255,.42);margin-top:10px}
-  .hero-mobile-info{display:none}
   .hero .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.4)}
   .hero .btn-ghost:hover{background:rgba(255,255,255,.1)}
   @media(max-width:760px){
-    .hero{min-height:520px;align-items:flex-end}
-    .hero-overlay{background:linear-gradient(to top,rgba(22,35,58,.98) 0%,rgba(22,35,58,.92) 38%,rgba(22,35,58,.5) 58%,rgba(22,35,58,.1) 80%,transparent 100%)}
-    .hero-text{padding:36px 22px 18px}
+    /* Stacked hero: animation gets its own stage on top, text sits on a solid dark panel below.
+       (Overlaying text on the full-bleed animation made elements collide.) */
+    .hero{min-height:auto;display:flex;flex-direction:column;align-items:stretch;
+      background:linear-gradient(180deg, color-mix(in srgb,var(--accent) 16%,var(--ink)) 0%, var(--ink) 52%);}
+    .hero-anim{position:relative;inset:auto;order:-1;flex:0 0 auto;
+      width:100%;aspect-ratio:390/400;max-height:46vh;overflow:hidden;
+      -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 80%,transparent 100%);
+              mask-image:linear-gradient(to bottom,#000 0%,#000 80%,transparent 100%);}
+    .hero-anim svg{position:absolute;inset:0;width:100%;height:100%}
+    .hero-overlay{display:none}
+    .hero-text{position:relative;z-index:2;padding:6px 22px 40px;margin:0}
     .hero-inner{max-width:100%}
-    .hero .facts,.hero .cta-row,.hero .cta-note{display:none}
-    .hero-mobile-info{display:flex;flex-direction:column;gap:8px;margin-top:18px}
-    .hero-mobile-info-row{font-size:13px;color:rgba(255,255,255,.85);font-weight:700;line-height:1.5;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:8px 16px;display:inline-block;width:fit-content}
+    .hero h1{font-size:clamp(34px,9vw,46px);margin:10px 0 14px}
+    .hero .sub{margin-bottom:22px}
+    .hero .facts{grid-template-columns:1fr 1fr;gap:9px;margin-bottom:22px}
+    .hero .fact{padding:11px 14px;font-size:13px}
+    .hero .fact b{font-size:16px}
+    .hero .cta-row{display:flex;flex-direction:column;gap:10px}
+    .hero .cta-row .btn{width:100%;text-align:center}
+    .hero .btn-ghost{display:none}
+    .hero .cta-note{display:block;text-align:center;width:100%;margin-top:12px}
   }
+
+
+  /* ── About section disclosure toggle ── */
+  summary.about-trigger{cursor:pointer;outline:none;list-style:none;display:block;-webkit-user-select:none;user-select:none}
+  summary.about-trigger::-webkit-details-marker{display:none}
+  summary.about-trigger:hover .about-arr{color:var(--accent)}
+  summary.about-trigger:hover h3,.about-trigger:hover [style*="font-size:18px"]{color:var(--accent)}
+  .about-arr{font-size:20px;color:var(--ink-soft);transition:transform .3s,color .2s;line-height:1;flex-shrink:0;margin-left:16px}
+  #about-section[open] .about-arr{transform:rotate(180deg)}
+  .about-body{animation:aboutIn .3s ease}
+  @keyframes aboutIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
 
   /* ─── NEW PAIN SECTION ─── */
 
@@ -91,7 +148,7 @@
   }
   .arch-btn .arch-emoji{display:block;font-size:22px;margin-bottom:4px}
   .arch-btn:hover{border-color:var(--accent);color:var(--accent)}
-  .arch-btn.active{border-color:var(--accent);background:#fff0e8;color:var(--accent)}
+  .arch-btn.active{border-color:var(--accent);background:var(--cream);color:var(--accent)}
   .arch-content{display:none}
   .arch-content.active{display:block;animation:fadeIn .2s ease}
   @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
@@ -107,7 +164,7 @@
   .arch-card h3{font-size:22px;margin-bottom:14px}
   .arch-card p{color:var(--ink-soft);font-size:16px}
   /* photo card */
-  .arch-card-photo-frame{flex:0 0 380px;padding:16px 0 16px 16px}
+  .arch-card-photo-frame{flex:0 0 380px;padding:16px 0 16px 16px;background:var(--line)}
   .arch-card-photo{
     width:100%;height:100%;min-height:260px;
     object-fit:cover;object-position:center 30%;display:block;
@@ -160,7 +217,7 @@
   }
   .u-tab-btn .arch-emoji{display:block;font-size:22px;margin-bottom:4px}
   .u-tab-btn:hover{border-color:var(--accent);color:var(--accent)}
-  .u-tab-btn.active{border-color:var(--accent);background:#fff0e8;color:var(--accent)}
+  .u-tab-btn.active{border-color:var(--accent);background:var(--cream);color:var(--accent)}
   .u-tab-content{
     display:none;margin-top:14px;padding:18px 22px;
     border-radius:12px;border:2px solid var(--line);background:#fff;
@@ -175,7 +232,7 @@
   }
   .method-tag{
     display:inline-block;font-size:12px;font-weight:800;letter-spacing:2px;
-    text-transform:uppercase;background:rgba(255,107,53,.18);color:#ffd4c0;
+    text-transform:uppercase;background:rgba(var(--accent-rgb),.18);color:#ffd4c0;
     padding:5px 12px;border-radius:999px;margin-bottom:16px;
   }
   .method-block h3{font-size:clamp(20px,3vw,26px);color:#fff;margin-bottom:16px;line-height:1.35}
@@ -191,7 +248,7 @@
     flex:1;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
     border-radius:12px;padding:16px;text-align:center;
   }
-  .survey-stat-hl{background:rgba(255,107,53,.12);border-color:rgba(255,107,53,.3)}
+  .survey-stat-hl{background:rgba(var(--accent-rgb),.12);border-color:rgba(var(--accent-rgb),.3)}
   .survey-num{font-size:38px;font-weight:900;color:#fff;line-height:1;margin-bottom:8px}
   .survey-desc{color:#bcc8da;font-size:13.5px;line-height:1.5}
   @media(max-width:760px){.survey-stats{flex-direction:column}}
@@ -201,13 +258,13 @@
     background:transparent;color:rgba(255,255,255,.55);font-size:13px;font-weight:700;
     cursor:pointer;font-family:inherit;transition:all .18s;
   }
-  .survey-tab-btn.active{background:rgba(255,107,53,.25);border-color:#ff6b35;color:#ffd4c0}
+  .survey-tab-btn.active{background:rgba(var(--accent-rgb),.25);border-color:#9F94D2;color:#ffd4c0}
   .survey-chart{margin-top:4px}
   .survey-bar-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
   .survey-grade{flex:0 0 56px;font-size:12px;font-weight:700;color:#bcc8da;text-align:right}
   .survey-bar-wrap{flex:1;background:rgba(255,255,255,.08);border-radius:999px;height:26px;overflow:hidden}
   .survey-bar{
-    height:100%;background:linear-gradient(90deg,#ff6b35,#ff9a6c);
+    height:100%;background:linear-gradient(90deg,var(--accent),color-mix(in srgb,var(--accent) 65%,#fff));
     border-radius:999px;display:flex;align-items:center;justify-content:flex-end;
     padding-right:8px;font-size:12px;font-weight:800;color:#fff;
     transition:width .6s cubic-bezier(.4,0,.2,1);white-space:nowrap;min-width:40px;
@@ -238,11 +295,11 @@
   }
 
   /* ── Guide Section ── */
-  .guide-section{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .guide-section{background:var(--cream);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   .guide-intro{text-align:center;margin-bottom:52px}
   .guide-body{display:grid;grid-template-columns:1.2fr 1fr;gap:36px;align-items:start;min-width:0}
   .guide-main-card{background:var(--ink);color:#fff;border-radius:var(--radius);padding:40px;box-sizing:border-box;overflow:hidden;min-width:0}
-  .guide-main-role{display:inline-block;font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;background:rgba(255,107,53,.18);color:#ffd4c0;padding:5px 12px;border-radius:999px;margin-bottom:18px}
+  .guide-main-role{display:inline-block;font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;background:rgba(var(--accent-rgb),.18);color:#ffd4c0;padding:5px 12px;border-radius:999px;margin-bottom:18px}
   .guide-main-logo{font-size:44px;line-height:1;margin-bottom:14px}
   .guide-main-title{font-size:28px;font-weight:900;color:#fff;margin-bottom:18px;line-height:1.2}
   .guide-main-card p{color:#c7d2e2;font-size:16px;margin-bottom:14px;line-height:1.75}
@@ -251,14 +308,14 @@
   .gms-item{flex:1;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px 16px;text-align:center}
   .gms-num{font-size:26px;font-weight:900;color:#fff;line-height:1;margin-bottom:4px}
   .gms-label{font-size:12px;color:#8da0ba;line-height:1.4}
-  .guide-main-quote{border-left:3px solid var(--accent);margin-top:22px;padding:14px 18px;background:rgba(255,107,53,.08);border-radius:0 10px 10px 0;font-style:italic;color:#ffd4c0;font-size:14.5px;line-height:1.75}
+  .guide-main-quote{border-left:3px solid var(--accent);margin-top:22px;padding:14px 18px;background:rgba(var(--accent-rgb),.08);border-radius:0 10px 10px 0;font-style:italic;color:#ffd4c0;font-size:14.5px;line-height:1.75}
   .guide-right{display:flex;flex-direction:column;gap:14px}
   .guide-teachers-label{font-size:12px;font-weight:700;color:var(--ink-soft);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:2px}
   .guide-teacher-card{background:var(--cream);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;transition:border-color .18s,box-shadow .18s}
-  .guide-teacher-card:hover{border-color:var(--accent);box-shadow:0 4px 18px rgba(255,107,53,.1)}
+  .guide-teacher-card:hover{border-color:var(--accent);box-shadow:0 4px 18px rgba(var(--accent-rgb),.1)}
   .teacher-badge{display:inline-block;font-size:12px;font-weight:700;letter-spacing:1px;background:#fff;border:1px solid var(--line);color:var(--ink-soft);padding:3px 10px;border-radius:999px;margin-bottom:10px}
   .teacher-name{font-size:18px;font-weight:900;color:var(--ink);margin-bottom:6px}
-  .teacher-role-tag{display:inline-block;font-size:12px;font-weight:700;background:rgba(255,107,53,.1);color:var(--accent);padding:3px 10px;border-radius:999px;margin-bottom:10px}
+  .teacher-role-tag{display:inline-block;font-size:12px;font-weight:700;background:rgba(var(--accent-rgb),.1);color:var(--accent);padding:3px 10px;border-radius:999px;margin-bottom:10px}
   .teacher-desc{font-size:14px;color:var(--ink-soft);line-height:1.65;margin:0}
   .guide-org{display:flex;align-items:center;gap:10px;margin-top:4px;padding:16px 20px;background:var(--cream);border:1px solid var(--line);border-radius:var(--radius)}
   .guide-org-label{font-size:12px;color:var(--ink-soft);font-weight:600}
@@ -284,20 +341,21 @@
   .sch-card{
     flex:0 0 calc(50% - 10px);scroll-snap-align:start;min-width:280px;
     background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:0 1px 2px rgba(var(--ink-rgb),.04),0 14px 30px -18px rgba(var(--ink-rgb),.22);
     padding:26px 22px 22px;display:flex;flex-direction:column;gap:12px;
   }
   .sch-card-icon{
-    width:48px;height:48px;border-radius:50%;
-    background:rgba(255,107,53,.1);
+    height:40px;padding:0 16px;border-radius:999px;
+    background:rgba(var(--accent-rgb),.1);
     display:flex;align-items:center;justify-content:center;
   }
   .sch-card-num{font-size:17px;font-weight:900;color:var(--accent)}
   .sch-card-day{
     display:inline-block;font-size:12px;font-weight:800;letter-spacing:1.5px;
-    background:rgba(255,107,53,.1);color:var(--accent);
+    background:rgba(var(--accent-rgb),.1);color:var(--accent);
     padding:3px 10px;border-radius:999px;
   }
-  .sch-card-day.d2{background:rgba(47,107,255,.1);color:var(--accent-2)}
+  .sch-card-day.d2{background:rgba(var(--accent2-rgb),.1);color:var(--accent-2)}
   .sch-card-title{font-size:16px;font-weight:900;color:var(--ink);line-height:1.35;flex:1}
   .sch-card-desc{font-size:15px;color:var(--ink-soft);line-height:1.65}
   .sch-item{display:flex;align-items:flex-start;gap:8px;padding:7px 0;border-bottom:1px solid var(--line)}
@@ -313,7 +371,7 @@
   .sch-dots{display:flex;align-items:center;gap:6px}
   .sch-dot-btn{
     width:7px;height:7px;border-radius:50%;
-    background:rgba(255,107,53,.2);transition:all .3s;
+    background:rgba(var(--accent-rgb),.2);transition:all .3s;
     cursor:pointer;border:none;padding:0;
   }
   .sch-dot-btn.active{background:var(--accent);width:20px;border-radius:4px}
@@ -335,7 +393,7 @@
   .form-field label{font-size:14px;font-weight:700;color:var(--ink)}
   .form-field .req{color:#c0392b}
   .form-field input,.form-field select{font:inherit;font-size:16px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);transition:border-color .18s,box-shadow .18s;width:100%}
-  .form-field input:focus,.form-field select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(255,107,53,.12)}
+  .form-field input:focus,.form-field select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(var(--accent-rgb),.12)}
   .form-btn-full{width:100%;padding:16px;font-size:16px;font-weight:900}
   .form-divider{display:flex;align-items:center;gap:12px;margin:2px 0}
   .form-divider::before,.form-divider::after{content:'';flex:1;height:1px;background:var(--line)}
@@ -379,7 +437,7 @@
   .price li:before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:900}
 
   /* referral */
-  .ref{background:linear-gradient(135deg,#ff6b35,#ff9a3d);color:#fff;border-radius:24px;padding:44px;text-align:center}
+  .ref{background:linear-gradient(135deg,#9F94D2,#b8b0e0);color:#fff;border-radius:24px;padding:44px;text-align:center}
   .ref h2{color:#fff}
   .ref p{font-size:15px;margin-top:12px;opacity:.95}
   .ref .btn-ghost{background:#fff;border-color:#fff;margin-top:24px}
@@ -430,6 +488,9 @@
     .guide-main-card{overflow:hidden}
   }
 </style>
+<link rel="preload" href="images/life_photo.jpg" as="image">
+<link rel="preload" href="images/balance_photo.jpg" as="image">
+<link rel="preload" href="images/study_photo.jpg" as="image">
 </head>
 <body>
 
@@ -437,7 +498,7 @@
 
 <div class="bar">
   <div class="wrap">
-    <div class="brand">讀書方法營 · <span>三升一</span></div>
+    <div class="brand"><span style="color:#1e3a5f">大腦駭客</span> <span style="font-weight:400;color:var(--ink-soft);font-size:.85em">×</span> <span style="color:var(--accent)">得勝者文教</span></div>
     <a href="#signup" class="btn btn-primary">立即搶名額</a>
   </div>
 </div>
@@ -622,18 +683,13 @@
         <div class="fact"><b>30 人/梯</b><small>限額招生</small></div>
         <div class="fact"><b>第一梯</b><small>7/16（四）– 7/17（五）</small></div>
         <div class="fact"><b>第二梯</b><small>7/20（一）– 7/21（二）</small></div>
-        <div class="fact" style="grid-column:1/-1"><b style="font-size:15px">📍 得勝者文教</b><small>台北市中正區中山南路 2 巷 5 號</small></div>
+        <div class="fact" style="grid-column:1/-1"><b>📍 地點</b><small>得勝者文教</small></div>
       </div>
       <div class="cta-row">
-        <a href="【報名表單連結】" class="btn btn-primary">立即填表報名</a>
+        <a href="#signup" class="btn btn-primary">立即填表報名</a>
         <a href="#days" class="btn btn-ghost">了解課程內容 ↓</a>
       </div>
       <p class="cta-note">名額有限，填表即確認座位</p>
-      <div class="hero-mobile-info">
-        <div class="hero-mobile-info-row">🗓️ 第一梯 7/16（四）– 7/17（五）</div>
-        <div class="hero-mobile-info-row">🗓️ 第二梯 7/20（一）– 7/21（二）</div>
-        <div class="hero-mobile-info-row">📍 地點：台北得勝者文教</div>
-      </div>
     </div>
   </div>
 
@@ -645,248 +701,90 @@
 <section style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap">
     <div style="text-align:center;margin-bottom:48px">
-      <span class="eyebrow">兩天後你將</span>
-      <h2 style="margin-top:14px">面對上高中，不再焦慮！<br>我們幫你整裝待發</h2>
+      <span class="eyebrow">讀書方法營</span>
+      <h2 style="margin-top:14px">兩天後，<br>你將成為「贏在起跑點」的準高中生</h2>
     </div>
-    <div class="value-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+    <div class="sch-carousel-wrap">
+      <div class="sch-carousel" id="valueCarousel">
 
-      <div style="background:var(--cream);border-radius:var(--radius);padding:32px 28px">
-        <div style="width:52px;height:52px;border-radius:50%;background:rgba(255,107,53,.12);display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:18px">📋</div>
-        <h3 style="font-size:19px;font-weight:900;color:var(--ink);margin-bottom:10px;line-height:1.3">一份開學就能用的計畫</h3>
-        <p style="font-size:15px;color:var(--ink-soft);line-height:1.75">兩天結束，手上有一份自己做的高一學習計畫，開學第一天就能執行。</p>
-      </div>
-
-      <div style="background:var(--cream);border-radius:var(--radius);padding:32px 28px">
-        <div style="width:52px;height:52px;border-radius:50%;background:rgba(255,107,53,.12);display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:18px">⚡</div>
-        <h3 style="font-size:19px;font-weight:900;color:var(--ink);margin-bottom:10px;line-height:1.3">少一半時間，雙倍成效</h3>
-        <p style="font-size:15px;color:var(--ink-soft);line-height:1.75">熟悉讀書方法後，比同學少一半時間讀書，學習成效卻加倍。</p>
-      </div>
-
-      <div style="background:var(--cream);border-radius:var(--radius);padding:32px 28px">
-        <div style="width:52px;height:52px;border-radius:50%;background:rgba(255,107,53,.12);display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:18px">📖</div>
-        <h3 style="font-size:19px;font-weight:900;color:var(--ink);margin-bottom:10px;line-height:1.3">單字量不再是問題</h3>
-        <p style="font-size:15px;color:var(--ink-soft);line-height:1.75">習得以認知科學為基底的記憶方法，讓你輕鬆應付高中英文單字量暴增。</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <span class="eyebrow">高中三年，不是讀越多越好——但也不是隨便玩就沒事。</span>
-    <h2>你想成為什麼樣的學生？</h2>
-
-    <!-- ── Part 1: 三種學生類型 ── -->
-    <div class="arch-tabs" role="tablist">
-      <button class="arch-btn active" role="tab" aria-selected="true" onclick="switchTab('play',this)">
-        <span class="arch-emoji">🎸</span>每天享受生活
-      </button>
-      <button class="arch-btn" role="tab" aria-selected="false" onclick="switchTab('balance',this)">
-        <span class="arch-emoji">⚖️</span>又會讀書、又會玩
-      </button>
-      <button class="arch-btn" role="tab" aria-selected="false" onclick="switchTab('study',this)">
-        <span class="arch-emoji">📚</span>沒日沒夜K書
-      </button>
-    </div>
-
-    <div class="arch-content active" id="tab-play">
-      <div class="arch-card arch-card-bad">
-        <!-- ▼ 替換 src 為實際照片路徑，例如 src="images/life.jpg" -->
-        <div class="arch-card-photo-frame">
-          <img class="arch-card-photo" src="life_photo.jpg" alt="社團演出、享受青春" onerror="this.parentElement.style.display='none'">
+        <div class="sch-card">
+          <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(var(--accent-rgb),.12);border:1px solid rgba(var(--accent-rgb),.3);border-radius:999px;padding:8px 16px;margin-bottom:4px">
+            <span style="font-size:18px">📚</span>
+            <span style="font-size:15px;font-weight:900;color:var(--ink)">不再怕單字量三級跳</span>
+          </div>
+          <div class="sch-card-desc">上了高中，英文單字量直接三級跳。我們教你用腦科學的方法，讓「背了又忘」變成「我真的記住了」！</div>
         </div>
-        <div class="arch-card-body">
-          <h3>每天享受生活</h3>
-          <p>在社團裡，創造出一生難忘的回憶！<br>
-          或是打遊戲，破關到電競選手的等級 ✌🏻</p>
-          <div class="arch-card-twist">但... 課業難、成績掉。<br>如果一切等高三再努力，常常已無力回天！</div>
+
+        <div class="sch-card">
+          <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(var(--accent-rgb),.12);border:1px solid rgba(var(--accent-rgb),.3);border-radius:999px;padding:8px 16px;margin-bottom:4px">
+            <span style="font-size:18px">🧠</span>
+            <span style="font-size:15px;font-weight:900;color:var(--ink)">沉浸體驗「高中該怎麼讀」</span>
+          </div>
+          <div class="sch-card-desc">這裡不是老師在台上講、你在台下聽。而是帶你讀過高中數學的一個單元，把讀書方法手把手交給你。</div>
+        </div>
+
+        <div class="sch-card">
+          <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(var(--accent-rgb),.12);border:1px solid rgba(var(--accent-rgb),.3);border-radius:999px;padding:8px 16px;margin-bottom:4px">
+            <span style="font-size:18px">📋</span>
+            <span style="font-size:15px;font-weight:900;color:var(--ink)">不是空手回家繼續等開學</span>
+          </div>
+          <div class="sch-card-desc">兩天結束後，你會帶著一份自己做的高一計劃。回家就可以開始照著走，不再為高中的課業焦慮。</div>
+        </div>
+
+      </div>
+      <div class="sch-controls">
+        <div class="sch-dots" id="valueDots">
+          <button class="sch-dot-btn active" data-idx="0"></button>
+          <button class="sch-dot-btn" data-idx="1"></button>
+          <button class="sch-dot-btn" data-idx="2"></button>
         </div>
       </div>
     </div>
-
-    <div class="arch-content" id="tab-balance">
-      <div class="arch-card arch-card-good">
-        <div class="arch-card-photo-frame">
-          <img class="arch-card-photo" src="balance_photo.jpg" alt="又會讀書、又會玩" onerror="this.parentElement.style.display='none'">
-        </div>
-        <div class="arch-card-body">
-          <h3>又會讀書、又會玩</h3>
-          <p>既有讀書的動力，<br class="br-m">也顧到生活其他面向！<br>不死讀書，對自己的未來有規劃</p>
-          <span class="arch-verdict verdict-good">✓ 成績好＋心情也好，這是你的目標</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="arch-content" id="tab-study">
-      <div class="arch-card arch-card-warn">
-        <div class="arch-card-photo-frame">
-          <img class="arch-card-photo" src="study_photo.jpg" alt="沒日沒夜K書" onerror="this.parentElement.style.display='none'">
-        </div>
-        <div class="arch-card-body">
-          <h3>沒日沒夜K書</h3>
-          <p>上學認真、放學補習、假日K書<br>
-          高中就是要努力！<br class="br-m">才能取得美好未來的門票！</p>
-          <div class="arch-card-twist" style="border-left-color:#fcd34d">⚠️ 但是花越多時間讀書... 成績真的就會越好嗎... ？</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ── Part 2: 倒U研究圖表 ── -->
-    <div class="research-block">
-      <div class="research-label">然而， PISA 2018 的研究發現...</div>
-      <h3 class="research-h3">不是越努力，成績就越好！</h3>
-      <p class="research-desc">學者指出：<wbr><span style="white-space:nowrap">「讀更久，並不一定會考更好」</span>！<wbr><br>學習時間與成績，<wbr>很可能呈現倒 U 型關係 <span style="font-size:14px;color:#a09080">(Liu et al., 2023)</span></p>
-
-      <div class="u-charts" style="grid-template-columns:1fr;max-width:560px;margin:0 auto">
-
-        <!-- 綜合倒U圖 -->
-        <div class="u-chart-card">
-          <div class="u-chart-title" style="color:var(--ink)">學習時間 vs 學業表現</div>
-          <svg width="100%" viewBox="0 0 420 230" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="ug" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#ff6b35" stop-opacity="0.22"/>
-                <stop offset="100%" stop-color="#ff6b35" stop-opacity="0.03"/>
-              </linearGradient>
-            </defs>
-            <!-- axes -->
-            <line x1="52" y1="16" x2="52" y2="160" stroke="#e7ddd3" stroke-width="1.5"/>
-            <line x1="52" y1="160" x2="400" y2="160" stroke="#e7ddd3" stroke-width="1.5"/>
-            <!-- axis labels -->
-            <text x="14" y="110" fill="#a09080" font-size="10" text-anchor="middle">學</text>
-            <text x="14" y="123" fill="#a09080" font-size="10" text-anchor="middle">業</text>
-            <text x="14" y="136" fill="#a09080" font-size="10" text-anchor="middle">表</text>
-            <text x="14" y="149" fill="#a09080" font-size="10" text-anchor="middle">現</text>
-            <text x="355" y="189" fill="#a09080" font-size="11" text-anchor="middle">每週學習時間 →</text>
-            <!-- zone labels on x-axis (well spaced) -->
-            <text x="80"  y="153" fill="#dc2626" font-size="10" text-anchor="middle">太少</text>
-            <text x="355" y="153" fill="#dc2626" font-size="10" text-anchor="middle">太多</text>
-            <!-- optimal zone highlight -->
-            <rect x="162" y="16" width="96" height="144" fill="#1f9d6b" fill-opacity="0.08" rx="3"/>
-            <!-- fill under curve -->
-            <path d="M68,152 C90,132 130,95 162,48 C178,26 194,16 210,18 C230,22 258,52 292,88 C326,122 360,148 390,155 L390,160 L68,160 Z" fill="url(#ug)"/>
-            <!-- curve -->
-            <path d="M68,152 C90,132 130,95 162,48 C178,26 194,16 210,18 C230,22 258,52 292,88 C326,122 360,148 390,155"
-                  fill="none" stroke="#ff6b35" stroke-width="3" stroke-linecap="round"/>
-            <!-- threshold dashes -->
-            <line x1="162" y1="48"  x2="162" y2="160" stroke="#1f9d6b" stroke-dasharray="5,4" stroke-width="1.2" opacity="0.5"/>
-            <line x1="258" y1="52"  x2="258" y2="160" stroke="#1f9d6b" stroke-dasharray="5,4" stroke-width="1.2" opacity="0.5"/>
-            <!-- peak dot -->
-            <circle cx="210" cy="18" r="5" fill="#ff6b35"/>
-            <!-- best zone label INSIDE chart -->
-            <text x="210" y="195" fill="#1f9d6b" font-size="10" text-anchor="middle" font-weight="700">最佳區間 ✓</text>
-            <!-- annotations -->
-            <text x="80"  y="110" fill="#dc2626" font-size="10" text-anchor="middle">效益遞增 ↑</text>
-            <text x="355" y="110" fill="#dc2626" font-size="10" text-anchor="middle">效益遞減 ↓</text>
-          </svg>
-        </div>
-
-      </div>
-
-
-      <!-- U-tabs -->
-      <div class="u-tabs">
-        <button class="u-tab-btn" onclick="switchUTab('less',this)">
-          <span class="arch-emoji">🎸</span>每天享受生活
-        </button>
-        <button class="u-tab-btn active" onclick="switchUTab('best',this)">
-          <span class="arch-emoji">⚖️</span>又會讀書、又會玩
-        </button>
-        <button class="u-tab-btn" onclick="switchUTab('over',this)">
-          <span class="arch-emoji">📚</span>沒日沒夜K書
-        </button>
-      </div>
-
-      <div class="u-tab-content" id="utab-less">
-        <p>沒有讀書，成績自然落後</p>
-      </div>
-      <div class="u-tab-content active" id="utab-best">
-        <p>落在<span style="white-space:nowrap">「最佳學習時間區間」</span>的學生，<wbr>不只成績表現最好，<wbr>主觀幸福感也最高——讀書和生活，<wbr>本來就可以同時都有。</p>
-      </div>
-      <div class="u-tab-content" id="utab-over">
-        <p>每天都在捲、瘋狂努力！<br>但這些學生，成績反而不會隨<br class="br-m">努力時間增加而進步......</p>
-      </div>
-
-      <div style="margin-top:18px;padding:18px 22px;background:var(--cream);border-radius:12px;border-left:4px solid var(--accent)">
-        <p style="color:var(--ink);font-size:16px;font-weight:700;line-height:1.7">為什麼有人<span style="white-space:nowrap">「一天花2小時讀書」</span>，<wbr><br>成績卻比<span style="white-space:nowrap">「每天讀6小時」</span>的同學高？</p>
-      </div>
-      <div class="cite">Liu et al. (2023) · Behavioral Sciences · PISA 2018</div>
-    </div>
-
-    <!-- ── Part 3: 學習方法是關鍵 ── -->
-    <div class="method-block">
-      <div class="method-tag">研究發現</div>
-      <h3>真正拉開差距的是<span style="white-space:nowrap">「學習方法」</span>！</h3>
-      <p>同樣花兩小時讀書，有好方法的人吸收三倍、記得更久！<br>只可惜，一直以來學校和補習班——<span style="display:block;margin-top:14px;padding:16px 20px;background:rgba(255,107,53,.12);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;font-weight:700;line-height:1.8;color:#fff">讓學生花大量的時間<span style="color:var(--accent)">「聽課」</span>，<br>卻沒有訓練學生<span style="color:var(--accent)">「用對方法讀書」</span>。</span></p>
-
-      <!-- Survey Interactive Block -->
-      <div class="method-insight" style="padding:0;background:transparent;border:none">
-        <p style="font-size:16px;color:#c7d2e2;margin-bottom:22px;line-height:1.7">調查數據證實了這件事！</p>
-        <div style="font-size:12px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#ffd4c0;margin-bottom:16px">大腦駭客 × 262 位全台高中生問卷調查</div>
-<div style="display:flex;justify-content:center">
-        <div style="position:relative;display:inline-block">
-          <canvas id="donut-canvas" style="display:block;cursor:pointer;width:220px;height:220px"></canvas>
-          <div id="donut-tip" style="
-            display:none;position:fixed;pointer-events:none;
-            background:#fff;color:#16233a;border-radius:10px;
-            padding:10px 14px;font-size:14px;font-weight:700;
-            box-shadow:0 4px 20px rgba(0,0,0,.25);white-space:nowrap;z-index:999
-          "></div>
-        </div>
-        </div>
-
-        <div style="margin-top:18px;font-size:12px;color:rgba(255,255,255,.35)">無論成績好壞，大多數學生都意識到自己需要更好的學習方法。</div>
-      </div>
-
-      <div class="method-bridge">這就是我們辦「讀書方法營」的目的 ↓</div>
-    </div>
-
   </div>
 </section>
 <!-- ══════════════════════════════════════════════ -->
 
-<section style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<section style="background:var(--cream);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap">
     <span class="eyebrow">三大亮點</span>
     <h2>為什麼是營隊，<br>而不是又一個暑期班？</h2>
-    <div class="pillars">
-      <div class="pillar">
-        <div class="pillar-body">
-          <div class="num">01 · 沉浸式學習體驗</div>
-          <h3>我們教你「怎麼讀」</h3>
-          <p>去補習班坐著聽課，我們則是帶你親身練習——一次完整跑過完整學習流程：<strong>預習、費曼學習法、解題、心智圖</strong>。搭配同儕互動，讓你學一次，用三年！</p>
+    <div class="sch-carousel-wrap">
+      <div class="sch-carousel" id="pillarCarousel">
+
+        <div class="sch-card" style="flex:0 0 calc(80% - 10px);min-width:280px;gap:0">
+          <div class="num" style="margin-bottom:10px;font-size:11px;font-weight:900">01 · 沉浸式學習體驗</div>
+          <h3 style="font-size:20px;margin-bottom:12px;color:var(--accent)">我們教你「怎麼讀」</h3>
+          <p style="font-size:15px;color:var(--ink-soft);line-height:1.75;margin-bottom:16px">去補習班坐著聽課，我們則是帶你親身練習——一次完整跑過完整學習流程：<strong>預習、費曼學習法、解題</strong>。搭配同儕互動，讓你學一次，用三年！</p>
+          <img src="images/mindmap_photo.jpg" alt="心智圖學習" style="width:100%;height:200px;object-fit:cover;border-radius:10px;display:block">
         </div>
-        <div class="pillar-img" style="padding:0;overflow:hidden">
-          <!-- ▼ 請上傳心智圖截圖後換成正確 src -->
-          <img src="mindmap_photo.jpg" alt="心智圖學習法" style="width:100%;height:100%;object-fit:cover;object-position:center" onerror="this.parentElement.style.fontSize='48px';this.parentElement.innerHTML='📐'">
+
+        <div class="sch-card" style="flex:0 0 calc(80% - 10px);min-width:280px;gap:0">
+          <div class="num" style="margin-bottom:10px;font-size:11px;font-weight:900">02 · 動力與計畫工作坊</div>
+          <h3 style="font-size:20px;margin-bottom:12px;color:var(--accent)">建立能撐三年的讀書系統</h3>
+          <p style="font-size:15px;color:var(--ink-soft);line-height:1.75;margin-bottom:16px">透過工作坊教你，如何打造自己的學習計畫，開學第一天就能執行！同時，帶你找到健康的讀書動機——不靠意志力硬撐，而是建立讓自己持續前進的系統。</p>
+          <img src="images/pillar1_photo.jpg" alt="計畫工作坊" style="width:100%;height:200px;object-fit:cover;border-radius:10px;display:block">
         </div>
+
+        <div class="sch-card" style="flex:0 0 calc(80% - 10px);min-width:280px;gap:0">
+          <div class="num" style="margin-bottom:10px;font-size:11px;font-weight:900">03 · 詞彙記憶工作坊</div>
+          <h3 style="font-size:20px;margin-bottom:12px;color:var(--accent)">用認知科學解決背單字</h3>
+          <p style="font-size:15px;color:var(--ink-soft);line-height:1.75;margin-bottom:16px">解決升高中後最多人頭痛的問題：英文單字量暴增，難度三級跳！我們用語言學和認知科學的方法，教你高效記憶——讓背單字不再是夢魘，而是有方法、可以掌控的事。</p>
+          <img src="images/pillar3_photo.jpg" alt="詞彙記憶工作坊" style="width:100%;height:200px;object-fit:cover;border-radius:10px;display:block">
+        </div>
+
       </div>
-      <div class="pillar">
-        <div class="pillar-body">
-          <div class="num">02 · 動力與計畫工作坊</div>
-          <h3>建立能撐三年的讀書系統</h3>
-          <p>透過工作坊教你，如何打造自己的學習計畫，開學第一天就能執行！同時，帶你找到健康的讀書動機——不靠意志力硬撐，而是建立讓自己持續前進的系統。</p>
-        </div>
-        <div class="pillar-img" style="padding:0;overflow:hidden">
-          <img src="pillar1_photo.jpg" alt="動力與計畫工作坊" style="width:100%;height:100%;object-fit:cover;object-position:center 80%" onerror="this.parentElement.style.fontSize='48px';this.parentElement.innerHTML='🗓️'">
-        </div>
-      </div>
-      <div class="pillar">
-        <div class="pillar-body">
-          <div class="num">03 · 詞彙記憶工作坊</div>
-          <h3>用認知科學解決背單字</h3>
-          <p>解決升高中後最多人頭痛的問題：英文單字量暴增，難度三級跳！我們用語言學和認知科學的方法，教你高效記憶——讓背單字不再是夢魘，而是有方法、可以掌控的事。</p>
-        </div>
-        <div class="pillar-img" style="padding:0;overflow:hidden">
-          <img src="pillar3_photo.jpg" alt="詞彙記憶工作坊" style="width:100%;height:100%;object-fit:cover;object-position:center 75%" onerror="this.parentElement.style.fontSize='48px';this.parentElement.innerHTML='🧠'">
+      <div class="sch-controls">
+        <div class="sch-dots" id="pillarDots">
+          <button class="sch-dot-btn active" data-idx="0"></button>
+          <button class="sch-dot-btn" data-idx="1"></button>
+          <button class="sch-dot-btn" data-idx="2"></button>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="days">
+<section id="days" style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap">
     <span class="eyebrow">兩天流程</span>
     <h2>兩天的沈浸式體驗</h2>
@@ -896,7 +794,9 @@
 
         <!-- DAY 1 -->
         <div class="sch-card">
-          <div class="sch-card-icon"><div class="sch-card-num">01</div></div>
+          <div class="sch-card-icon"><div class="sch-card-num">Day 1</div></div>
+          <div>
+          </div>
           <div class="sch-card-title">破冰・組隊・讀書方法</div>
           <div>
             <div style="font-size:10.5px;font-weight:800;letter-spacing:1.5px;color:var(--accent);margin-bottom:6px">上午</div>
@@ -914,12 +814,14 @@
 
         <!-- DAY 2 -->
         <div class="sch-card">
-          <div class="sch-card-icon"><div class="sch-card-num">02</div></div>
+          <div class="sch-card-icon"><div class="sch-card-num">Day 2</div></div>
+          <div>
+          </div>
           <div class="sch-card-title">讀書方法・計畫・結業</div>
           <div>
             <div style="font-size:10.5px;font-weight:800;letter-spacing:1.5px;color:var(--accent-2);margin-bottom:6px">上午</div>
             <div class="sch-item"><div class="sch-dot d2"></div><div class="sch-act">讀書方法（三）：寫題與訂正<small>錯題才是最值錢的資源</small></div></div>
-            <div class="sch-item"><div class="sch-dot d2"></div><div class="sch-act">讀書方法（四）：心智圖<small>把一章的知識，整理成一張圖</small></div></div>
+            <div class="sch-item"><div class="sch-dot d2"></div><div class="sch-act">讀書方法（四）：讀完不忘的秘訣<small>學完不忘，才算真的學會</small></div></div>
           </div>
           <div style="padding-top:12px;border-top:1px solid var(--line)">
             <div style="font-size:10.5px;font-weight:800;letter-spacing:1.5px;color:var(--accent-2);margin-bottom:6px">下午</div>
@@ -957,10 +859,10 @@
     <div class="guide-body">
 
       <div class="guide-main-card">
-        <div class="guide-main-role">課程設計者 · 85% 內容</div>
+        <div class="guide-main-role">課程設計者</div>
 
         <div style="display:flex;align-items:center;gap:14px;margin-bottom:22px">
-          <img src="Logo.jpg" alt="大腦駭客" style="width:64px;height:64px;object-fit:cover;border-radius:12px;flex-shrink:0">
+          <img src="images/Logo.jpg" alt="大腦駭客" style="width:64px;height:64px;object-fit:cover;border-radius:12px;flex-shrink:0">
           <div>
             <div class="guide-main-title" style="margin-bottom:6px">大腦駭客</div>
             <span style="font-size:12px;font-weight:700;background:rgba(255,255,255,.1);color:#bcc8da;padding:3px 10px;border-radius:999px;letter-spacing:.5px">2023 · 台大心理系學生創立</span>
@@ -1046,9 +948,9 @@
             <span style="font-size:12px;opacity:.6;transition:transform .2s" class="cred-arrow">▾</span>
           </button>
           <div style="display:none;flex-direction:column;gap:10px;padding:12px 8px 4px;overflow:hidden">
-            <div style="display:flex;gap:10px;align-items:flex-start"><span style="flex-shrink:0;font-size:13.5px;line-height:1.65">🏛️</span><span style="font-size:13.5px;color:#c7d2e2;line-height:1.65;min-width:0;overflow-wrap:break-word;flex:1">曾通過<strong style="color:#fff">台大創業孵化器（車庫）</strong>的審核進入決選</span></div>
+            <div style="display:flex;gap:10px;align-items:flex-start"><span style="flex-shrink:0;font-size:13.5px;line-height:1.65">🎤</span><span style="font-size:13.5px;color:#c7d2e2;line-height:1.65;min-width:0;overflow-wrap:break-word;flex:1">創辦人曾獲選<strong style="color:#fff">台大傑出全英語授課教學助理獎</strong></span></div>
             <div style="display:flex;gap:10px;align-items:flex-start"><span style="flex-shrink:0;font-size:13.5px;line-height:1.65">🎓</span><span style="font-size:13.5px;color:#c7d2e2;line-height:1.65;min-width:0;overflow-wrap:break-word;flex:1">與<strong style="color:#fff">台大育成中心</strong>合作投 U-Start 企劃</span></div>
-            <div style="display:flex;gap:10px;align-items:flex-start"><span style="flex-shrink:0;font-size:13.5px;line-height:1.65">🎤</span><span style="font-size:13.5px;color:#c7d2e2;line-height:1.65;min-width:0;overflow-wrap:break-word;flex:1">成員曾任<strong style="color:#fff">台大寫作教學中心</strong>教學助理兩年</span></div>
+            <div style="display:flex;gap:10px;align-items:flex-start"><span style="flex-shrink:0;font-size:13.5px;line-height:1.65">🏛️</span><span style="font-size:13.5px;color:#c7d2e2;line-height:1.65;min-width:0;overflow-wrap:break-word;flex:1">曾通過<strong style="color:#fff">台大創業孵化器（車庫）</strong>的審核進入決選</span></div>
           </div>
         </div>
 
@@ -1060,13 +962,9 @@
 
       <div class="guide-right">
         <div class="guide-org">
-          <div style="display:flex;align-items:flex-start;gap:10px">
-            <span style="font-size:20px;margin-top:2px">📍</span>
-            <div>
-              <div class="guide-org-label">地點</div>
-              <div class="guide-org-name">得勝者文教</div>
-              <div style="font-size:13px;color:var(--ink-soft);margin-top:4px">台北市中正區中山南路 2 巷 5 號</div>
-            </div>
+          <div>
+            <div class="guide-org-label">場地 · 主辦機構</div>
+            <div class="guide-org-name">得勝者文教</div>
           </div>
         </div>
       </div>
@@ -1075,34 +973,219 @@
   </div>
 </section>
 
-<section style="background:var(--cream);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  <div class="wrap center">
-    <span class="eyebrow">費用方案</span>
-    <h2>零報名費，只付餐費！</h2>
-    <div class="price">
-      <div class="big">NT$ 300</div>
-      <div class="back">兩天餐費</div>
-      <ul>
-        <li>為什麼只收餐費？讀書方法營是我們讓你認識我們的方式！覺得值，你自然會想繼續～</li>
-        <li>每梯只收 30 人，我們想把這個機會留給真的想來的學生！</li>
-      </ul>
-      <a href="#signup" class="btn btn-primary">加 LINE 詢問 / 報名</a>
-      <p class="cta-note" style="margin-top:14px">＊實際費用與折抵方式以正式報名說明為準。</p>
-    </div>
-  </div>
-</section>
-
-<section style="background:#fff;border-top:1px solid var(--line)">
+<section style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap">
-    <div class="ref">
-      <span class="eyebrow">揪好友同隊</span>
-      <h2>一個人來有點怕？<br>那就揪上你最好的朋友。</h2>
-      <p>揪一位好友一起來，保證分到同一隊。<br>最棒的暑假，<br class="br-m">本來就該跟最對的人一起過。</p>
-      <a href="#signup" class="btn btn-ghost">揪好友一起報名</a>
+    <div class="sch-carousel-wrap">
+      <div class="sch-carousel" id="priceCarousel">
+
+        <div class="sch-card" style="flex:0 0 calc(85% - 10px);min-width:280px;text-align:center;align-items:center">
+          <span class="eyebrow">費用方案</span>
+          <div style="font-size:42px;font-weight:900;color:var(--ink);line-height:1;margin:10px 0 4px">NT$ 280</div>
+          <div class="back" style="margin:10px 0">兩天餐費</div>
+          <ul style="list-style:none;text-align:left;width:100%;margin:12px 0 20px">
+            <li style="padding-left:24px;position:relative;margin-bottom:10px;font-size:15px;color:var(--ink-soft)"><span style="position:absolute;left:0;color:var(--green);font-weight:900">✓</span>為什麼只收餐費？讀書方法營是我們讓你認識我們的方式！覺得值，你自然會想繼續～</li>
+            <li style="padding-left:24px;position:relative;font-size:15px;color:var(--ink-soft)"><span style="position:absolute;left:0;color:var(--green);font-weight:900">✓</span>每梯限 30 人，我們想把這個機會留給真的想來的學生！</li>
+          </ul>
+          <a href="#signup" class="btn btn-primary" style="width:100%;text-align:center">加 LINE 詢問 / 報名</a>
+          <p class="cta-note" style="margin-top:10px;font-size:12px;color:var(--ink-soft)">＊實際費用與折抵方式以正式報名說明為準。</p>
+        </div>
+
+        <div class="sch-card" style="flex:0 0 calc(85% - 10px);min-width:280px;background:var(--accent);border-color:var(--accent);text-align:center;align-items:center">
+          <span class="eyebrow" style="background:rgba(255,255,255,.15);color:#fff;border-color:transparent">揪好友同隊</span>
+          <h2 style="color:#fff;font-size:22px;margin:12px 0 14px;line-height:1.35">一個人來有點怕？<br>那就揪上你最好的朋友。</h2>
+          <p style="color:rgba(255,255,255,.85);font-size:15px;line-height:1.75;margin-bottom:20px">揪一位好友一起來，保證分到同一隊。<br>最棒的暑假，本來就該跟最對的人一起過。</p>
+          <a href="#signup" class="btn btn-ghost" style="background:#fff;border-color:#fff;color:var(--accent);width:100%;text-align:center">揪好友一起報名</a>
+        </div>
+
+      </div>
+      <div class="sch-controls">
+        <div class="sch-dots" id="priceDots">
+          <button class="sch-dot-btn active" data-idx="0"></button>
+          <button class="sch-dot-btn" data-idx="1"></button>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
+
+
+
+<!-- ══════════════════════════════════════════════
+     PAIN / RESEARCH (v3 layout)
+     ══════════════════════════════════════════════ -->
+<section style="padding:0;border-top:1px solid var(--line)">
+  <details id="about-section">
+    <summary class="about-trigger">
+      <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;padding:22px 0">
+        <div>
+          <div style="font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px">延伸閱讀</div>
+          <div style="font-size:18px;font-weight:900;color:var(--ink)">想更了解我們的教學理念？</div>
+          <div style="font-size:14px;color:var(--ink-soft);margin-top:4px">三種學生類型・研究背景・問卷數據</div>
+        </div>
+        <span class="about-arr">▾</span>
+      </div>
+    </summary>
+    <div class="about-body" style="border-top:1px solid var(--line)">
+      <div class="wrap" style="padding-top:52px;padding-bottom:52px">
+    <span class="eyebrow">高中三年，不是讀越多越好——但也不是隨便玩就沒事</span>
+    <h2>你想成為什麼樣的學生？</h2>
+
+    <!-- Part 1：三種學生類型 -->
+    <div class="arch-tabs" role="tablist">
+      <button class="arch-btn active" role="tab" aria-selected="true" onclick="switchTab('play',this)">
+        <span class="arch-emoji">🎸</span>每天享受生活
+      </button>
+      <button class="arch-btn" role="tab" aria-selected="false" onclick="switchTab('balance',this)">
+        <span class="arch-emoji">⚖️</span>又會讀書、又會玩
+      </button>
+      <button class="arch-btn" role="tab" aria-selected="false" onclick="switchTab('study',this)">
+        <span class="arch-emoji">📚</span>沒日沒夜K書
+      </button>
+    </div>
+
+    <div class="arch-content active" id="tab-play">
+      <div class="arch-card arch-card-bad">
+        <div class="arch-card-photo-frame">
+          <img class="arch-card-photo" loading="eager" src="images/life_photo.jpg" alt="享受生活、社團">
+        </div>
+        <div class="arch-card-body">
+          <h3>每天享受生活</h3>
+          <p>在社團裡，創造出一生難忘的回憶！<br>或是打遊戲，破關到電競選手的等級 ✌🏻</p>
+          <div class="arch-card-twist">但... 課業難、成績掉。<br>如果一切等高三再努力，常常已無力回天！</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="arch-content" id="tab-balance">
+      <div class="arch-card arch-card-good">
+        <div class="arch-card-photo-frame">
+          <img class="arch-card-photo" src="images/balance_photo.jpg" alt="兼顧讀書與生活" style="object-position:center 75%">
+        </div>
+        <div class="arch-card-body">
+          <h3>又會讀書、又會玩</h3>
+          <p>既有讀書的動力，也顧到生活其他面向！<br>不死讀書，對自己的未來有規劃。</p>
+          <span class="arch-verdict verdict-good">✓ 成績好＋心情也好，這是你的目標</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="arch-content" id="tab-study">
+      <div class="arch-card arch-card-warn">
+        <div class="arch-card-photo-frame">
+          <img class="arch-card-photo" loading="eager" src="images/study_photo.jpg" alt="埋頭苦讀">
+        </div>
+        <div class="arch-card-body">
+          <h3>沒日沒夜K書</h3>
+          <p>上學認真、放學補習、假日K書。<br>高中就是要努力！才能取得美好未來的門票！</p>
+          <div class="arch-card-twist" style="border-left-color:#fcd34d">⚠️ 但是花越多時間讀書... 成績真的就會越好嗎... ？</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Part 2：倒 U 研究圖表 -->
+    <div class="research-block">
+      <div class="research-label">然而，PISA 2018 的研究發現...</div>
+      <h3 class="research-h3">不是越努力，成績就越好！</h3>
+      <p class="research-desc">學者指出：「讀更久，並不一定會考更好」！<br>學習時間與成績，很可能呈現倒 U 型關係 <span style="font-size:14px;color:#a09080">(Liu et al., 2023)</span></p>
+
+      <div class="u-charts" style="grid-template-columns:1fr;max-width:560px;margin:0 auto">
+        <div class="u-chart-card">
+          <div class="u-chart-title" style="color:var(--ink)">學習時間 vs 學業表現</div>
+          <svg width="100%" viewBox="0 0 440 250" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="ug" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#ff6b35" stop-opacity="0.28"/>
+                <stop offset="100%" stop-color="#ff6b35" stop-opacity="0.04"/>
+              </linearGradient>
+            </defs>
+            <!-- Axes -->
+            <line x1="56" y1="14" x2="56" y2="174" stroke="#d0c8bc" stroke-width="1.8"/>
+            <line x1="56" y1="174" x2="424" y2="174" stroke="#d0c8bc" stroke-width="1.8"/>
+            <!-- Y-axis label -->
+            <text x="18" y="97" fill="#a09080" font-size="11" text-anchor="middle">學</text>
+            <text x="18" y="111" fill="#a09080" font-size="11" text-anchor="middle">業</text>
+            <text x="18" y="125" fill="#a09080" font-size="11" text-anchor="middle">表</text>
+            <text x="18" y="139" fill="#a09080" font-size="11" text-anchor="middle">現</text>
+            <!-- X-axis label -->
+            <text x="360" y="220" fill="#a09080" font-size="12" text-anchor="middle">每週學習時間 →</text>
+            <!-- Optimal zone highlight -->
+            <rect x="170" y="14" width="104" height="160" fill="#1f9d6b" fill-opacity="0.10" rx="4"/>
+            <!-- Fill under curve -->
+            <path d="M72,168 C96,148 136,106 168,56 C184,32 200,20 220,20 C240,22 268,56 302,96 C336,134 372,160 416,168 L416,174 L72,174 Z" fill="url(#ug)"/>
+            <!-- Curve -->
+            <path d="M72,168 C96,148 136,106 168,56 C184,32 200,20 220,20 C240,22 268,56 302,96 C336,134 372,160 416,168" fill="none" stroke="#ff6b35" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Zone boundaries -->
+            <line x1="170" y1="56" x2="170" y2="174" stroke="#1f9d6b" stroke-dasharray="6,4" stroke-width="1.5" opacity="0.6"/>
+            <line x1="274" y1="56" x2="274" y2="174" stroke="#1f9d6b" stroke-dasharray="6,4" stroke-width="1.5" opacity="0.6"/>
+            <!-- Peak dot -->
+            <circle cx="220" cy="20" r="6" fill="#ff6b35"/>
+            <circle cx="220" cy="20" r="10" fill="#ff6b35" fill-opacity="0.18"/>
+            <!-- Zone labels – bottom zone (below x-axis) -->
+            <text x="100" y="196" fill="#dc2626" font-size="13" font-weight="700" text-anchor="middle">太少</text>
+            <text x="388" y="196" fill="#dc2626" font-size="13" font-weight="700" text-anchor="middle">太多</text>
+            <!-- Optimal zone label -->
+            <text x="222" y="200" fill="#1f9d6b" font-size="13" font-weight="800" text-anchor="middle">最佳區間 ✓</text>
+            <!-- Trend labels – above the fill in clear space -->
+            <text x="98" y="94" fill="#dc2626" font-size="12" font-weight="600" text-anchor="middle">效益遞增 ↑</text>
+            <text x="368" y="94" fill="#dc2626" font-size="12" font-weight="600" text-anchor="middle">效益遞減 ↓</text>
+          </svg>
+        </div>
+      </div>
+
+      <div class="u-tabs">
+        <button class="u-tab-btn" onclick="switchUTab('less',this)">
+          <span class="arch-emoji">🎸</span>每天享受生活
+        </button>
+        <button class="u-tab-btn active" onclick="switchUTab('best',this)">
+          <span class="arch-emoji">⚖️</span>又會讀書、又會玩
+        </button>
+        <button class="u-tab-btn" onclick="switchUTab('over',this)">
+          <span class="arch-emoji">📚</span>沒日沒夜K書
+        </button>
+      </div>
+
+      <div class="u-tab-content" id="utab-less">
+        <p>沒有讀書，成績自然落後。</p>
+      </div>
+      <div class="u-tab-content active" id="utab-best">
+        <p>落在「最佳學習時間區間」的學生，不只成績表現最好，主觀幸福感也最高——讀書和生活，本來就可以同時都有。</p>
+      </div>
+      <div class="u-tab-content" id="utab-over">
+        <p>每天都在捲、瘋狂努力！<br>但這些學生，成績反而不會隨努力時間增加而進步......</p>
+      </div>
+
+      <div style="margin-top:18px;padding:18px 22px;background:var(--cream);border-radius:12px;border-left:4px solid var(--accent)">
+        <p style="color:var(--ink);font-size:16px;font-weight:700;line-height:1.7">為什麼有人「一天花2小時讀書」，<br>成績卻比「每天讀6小時」的同學高？</p>
+      </div>
+      <div class="cite">Liu et al. (2023) · Behavioral Sciences · PISA 2018</div>
+    </div>
+
+    <!-- Part 3：學習方法是關鍵 -->
+    <div class="method-block">
+      <div class="method-tag">研究發現</div>
+      <h3>真正拉開差距的是「讀書方法」！</h3>
+      <p>同樣花兩小時讀書，有好方法的人吸收三倍、記得更久！<br>只可惜，一直以來學校和補習班——<span style="display:block;margin-top:14px;padding:16px 20px;background:rgba(var(--accent-rgb),.16);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;font-weight:700;line-height:1.8;color:#fff">讓學生花大量的時間<span style="color:var(--accent)">「聽課」</span>，<br>卻沒有訓練學生<span style="color:var(--accent)">「用對方法讀書」</span>。</span></p>
+
+      <div class="method-insight" style="padding:0;background:transparent;border:none">
+        <p style="font-size:16px;color:#c7d2e2;margin-bottom:22px;line-height:1.7">調查數據證實了這件事！</p>
+        <div style="font-size:12px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#ffd4c0;margin-bottom:16px">大腦駭客 × 262 位全台高中生問卷調查</div>
+        <div style="display:flex;justify-content:center">
+          <div style="position:relative;display:inline-block">
+            <canvas id="donut-canvas" style="display:block;cursor:pointer;width:220px;height:220px"></canvas>
+            <div id="donut-tip" style="display:none;position:fixed;pointer-events:none;background:#fff;color:#16233a;border-radius:10px;padding:10px 14px;font-size:14px;font-weight:700;box-shadow:0 4px 20px rgba(0,0,0,.25);white-space:nowrap;z-index:999"></div>
+          </div>
+        </div>
+        <div style="margin-top:18px;font-size:12px;color:rgba(255,255,255,.4);text-align:center">覺得自己需要改變讀書方式</div>
+      </div>
+
+      <div class="method-bridge">這就是我們辦「讀書方法營」的目的 ↓</div>
+    </div>
+  </div>
+    </div>
+  </details>
+</section>
+<!-- ══════════════════════════════════════════════ -->
 
 <section id="signup" style="background:var(--ink);padding:80px 0">
   <div class="wrap">
@@ -1110,6 +1193,7 @@
       <span class="eyebrow" style="color:var(--accent);background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.12)">名額有限・額滿不加開</span>
       <h2 style="color:#fff;margin-top:10px">把這個暑假，過成值得記得的兩天。</h2>
       <p style="color:rgba(255,255,255,.6);font-size:16px;margin-top:12px">留下資料，我們幫你保留座位。</p>
+      <p style="color:rgba(255,255,255,.45);font-size:14px;margin-top:8px">📍 活動地點：得勝者文教</p>
     </div>
 
     <!-- 報名流程 -->
@@ -1127,7 +1211,7 @@
       <div style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:20px 16px;text-align:center">
         <div style="width:36px;height:36px;border-radius:50%;background:var(--accent);color:#fff;font-size:16px;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 12px">3</div>
         <div style="font-size:14px;font-weight:800;color:#fff;line-height:1.4">完成匯款</div>
-        <div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:4px;line-height:1.4">NT$ 300 餐費，報名確認</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:4px;line-height:1.4">NT$ 280 餐費，報名確認</div>
       </div>
       <div style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:20px 16px;text-align:center">
         <div style="width:36px;height:36px;border-radius:50%;background:#06C755;color:#fff;font-size:16px;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 12px">4</div>
@@ -1184,7 +1268,7 @@
 </section>
 
 <footer>
-  © 2026 得勝者文教・讀書方法營<br>
+  © 2026 大腦駭客・讀書方法營<br>
   <span style="font-size:12px">官方 LINE：<a href="【LINE 連結】">加入</a></span>
 </footer>
 
@@ -1192,7 +1276,7 @@
 // Donut chart with hover tooltip
 (function() {
   const data = [
-    { label: '很需要',     count: 121, color: '#ff6b35' },
+    { label: '很需要',     count: 121, color: '#9F94D2' },
     { label: '非常需要',   count: 72,  color: '#c85c28' },
     { label: '還好',       count: 51,  color: '#3d5068' },
     { label: '不太需要',   count: 11,  color: '#2a3a4e' },
@@ -1252,10 +1336,7 @@
     ctx.textAlign = 'center';
     ctx.fillStyle = '#fff';
     ctx.font = 'bold 26px "Noto Sans TC",system-ui,sans-serif';
-    ctx.fillText('73.7%', cx, cy + 4);
-    ctx.font = '11px "Noto Sans TC",system-ui,sans-serif';
-    ctx.fillStyle = 'rgba(255,255,255,0.45)';
-    ctx.fillText('需要改變學習方式', cx, cy + 22);
+    ctx.fillText('73.7%', cx, cy + 9);
   }
 
   function getSegment(canvas, mx, my) {
@@ -1349,6 +1430,24 @@ const GS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzl3U9gvIztl_VJjyeu
 (function(){
   var car=document.getElementById('schCarousel');
   var dots=document.querySelectorAll('#schDots .sch-dot-btn');
+  if(!car||!dots.length)return;
+  function updateDots(){
+    var idx=Math.round(car.scrollLeft/(car.scrollWidth/dots.length));
+    dots.forEach(function(d,i){d.classList.toggle('active',i===idx);});
+  }
+  car.addEventListener('scroll',updateDots,{passive:true});
+  dots.forEach(function(d){
+    d.addEventListener('click',function(){
+      var idx=parseInt(d.dataset.idx);
+      car.scrollTo({left:idx*(car.scrollWidth/dots.length),behavior:'smooth'});
+    });
+  });
+})();
+
+// Value carousel dots
+(function(){
+  var car=document.getElementById('valueCarousel');
+  var dots=document.querySelectorAll('#valueDots .sch-dot-btn');
   if(!car||!dots.length)return;
   function updateDots(){
     var idx=Math.round(car.scrollLeft/(car.scrollWidth/dots.length));
@@ -1462,7 +1561,49 @@ function switchTab(id, btn) {
   btn.classList.add('active');
   btn.setAttribute('aria-selected', 'true');
 }
+
+(function(){
+  var car=document.getElementById('pillarCarousel');
+  var dots=document.querySelectorAll('#pillarDots .sch-dot-btn');
+  if(!car||!dots.length)return;
+  function updateDots(){
+    var idx=Math.round(car.scrollLeft/(car.scrollWidth/dots.length));
+    dots.forEach(function(d,i){d.classList.toggle('active',i===idx);});
+  }
+  car.addEventListener('scroll',updateDots,{passive:true});
+  dots.forEach(function(d){
+    d.addEventListener('click',function(){
+      var idx=parseInt(d.dataset.idx);
+      car.scrollTo({left:idx*(car.scrollWidth/dots.length),behavior:'smooth'});
+    });
+  });
+})();
+
+(function(){
+  var car=document.getElementById('priceCarousel');
+  var dots=document.querySelectorAll('#priceDots .sch-dot-btn');
+  if(!car||!dots.length)return;
+  function updateDots(){
+    var idx=Math.round(car.scrollLeft/(car.scrollWidth/dots.length));
+    dots.forEach(function(d,i){d.classList.toggle('active',i===idx);});
+  }
+  car.addEventListener('scroll',updateDots,{passive:true});
+  dots.forEach(function(d){
+    d.addEventListener('click',function(){
+      var idx=parseInt(d.dataset.idx);
+      car.scrollTo({left:idx*(car.scrollWidth/dots.length),behavior:'smooth'});
+    });
+  });
+})();
 </script>
+
+<!-- Tweaks: visual-direction switcher -->
+<div id="tweaks-root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="tweaks-app.jsx"></script>
 
 </body>
 </html>

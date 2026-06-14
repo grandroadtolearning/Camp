@@ -100,6 +100,15 @@
   .fact small{color:rgba(255,255,255,.5);font-weight:600}
   .cta-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
   .cta-note{font-size:14px;color:rgba(255,255,255,.42);margin-top:10px}
+  /* early-bird free-meal banner */
+  .earlybird-banner{display:flex;align-items:center;gap:12px;margin-bottom:22px;
+    background:linear-gradient(135deg,rgba(31,157,107,.22),rgba(31,157,107,.10));
+    border:1px solid rgba(110,231,183,.45);border-radius:14px;padding:12px 16px}
+  .eb-flag{flex:0 0 auto;font-size:12px;font-weight:900;letter-spacing:1px;color:#06351f;
+    background:#6ee7b7;border-radius:8px;padding:5px 10px}
+  .eb-text{color:#eafaf3;font-size:14px;line-height:1.4}
+  .eb-text b{display:block;color:#fff;font-size:15.5px;font-weight:900}
+  .eb-text small{color:rgba(234,250,243,.7);font-size:12.5px}
   .hero .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.4)}
   .hero .btn-ghost:hover{background:rgba(255,255,255,.1)}
   @media(max-width:760px){
@@ -402,6 +411,37 @@
   .btn-line-form:hover{background:#05a847}
   .form-privacy{font-size:12px;color:var(--ink-soft);text-align:center;margin-top:4px}
   .form-success{display:none;max-width:520px;margin:36px auto 0;background:#f0fdf4;border:1.5px solid #6ee7b7;border-radius:var(--radius);padding:48px 36px;text-align:center}
+  /* ── two-step form ── */
+  .form-progress{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+  .fp-step{flex:1;display:flex;align-items:center;gap:8px;font-size:13px;font-weight:800;color:var(--ink-soft)}
+  .fp-num{flex:0 0 auto;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-size:13px;font-weight:900;background:var(--cream);color:var(--ink-soft);border:1.5px solid var(--line);transition:all .2s}
+  .fp-step.active .fp-num{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .fp-step.done .fp-num{background:var(--green);color:#fff;border-color:var(--green)}
+  .fp-line{flex:0 0 24px;height:2px;background:var(--line);border-radius:2px}
+  .form-step{display:none}
+  .form-step.active{display:grid;gap:18px;animation:fadeIn .25s ease}
+  .step-heading{font-size:13px;font-weight:700;color:var(--accent);letter-spacing:.5px;text-align:left;margin-bottom:-4px}
+  /* question option groups */
+  .qgroup{display:grid;gap:10px;text-align:left}
+  .qgroup > .qlabel{font-size:14px;font-weight:700;color:var(--ink);line-height:1.5}
+  .qgroup .req{color:#c0392b}
+  .qhint{font-size:12px;color:var(--ink-soft);font-weight:500;margin-top:-4px}
+  .opt{display:flex;align-items:flex-start;gap:10px;padding:12px 14px;border:1.5px solid var(--line);
+    border-radius:12px;cursor:pointer;font-size:15px;color:var(--ink);transition:border-color .15s,background .15s;line-height:1.5}
+  .opt:hover{border-color:var(--accent)}
+  .opt input{margin-top:3px;accent-color:var(--accent);width:17px;height:17px;flex:0 0 auto}
+  .opt:has(input:checked){border-color:var(--accent);background:var(--cream)}
+  .qgroup textarea{font:inherit;font-size:16px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;
+    background:#fff;color:var(--ink);width:100%;min-height:84px;resize:vertical;transition:border-color .18s,box-shadow .18s}
+  .qgroup textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(var(--accent-rgb),.12)}
+  .form-nav{display:flex;gap:12px}
+  .form-nav .btn{flex:1}
+  .btn-back{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
+  .btn-back:hover{border-color:var(--ink)}
+  .session-fixed{font-size:16px;font-weight:800;color:var(--ink);background:var(--cream);
+    border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .session-fixed small{display:block;font-size:12px;font-weight:600;color:var(--ink-soft);margin-top:2px}
   .roadmap{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:36px auto 0;max-width:720px}
   @media(max-width:760px){.roadmap{grid-template-columns:1fr 1fr}}
 
@@ -680,10 +720,13 @@
       <p class="sub">讓你上高中可以：<wbr>把書<b style="color:var(--accent)">讀完</b>、<b style="color:var(--accent)">讀懂</b>、<b style="color:var(--accent)">稱霸</b></p>
       <div class="facts">
         <div class="fact"><b>2 天</b><small>沉浸式營隊</small></div>
-        <div class="fact"><b>30 人/梯</b><small>限額招生</small></div>
-        <div class="fact"><b>第一梯</b><small>7/16（四）– 7/17（五）</small></div>
-        <div class="fact"><b>第二梯</b><small>7/20（一）– 7/21（二）</small></div>
-        <div class="fact" style="grid-column:1/-1"><b>📍 地點</b><small>得勝者文教</small></div>
+        <div class="fact"><b>30 人限額</b><small>額滿不加開</small></div>
+        <div class="fact"><b>📅 日期</b><small>7/20（一）– 7/21（二）</small></div>
+        <div class="fact"><b>📍 地點</b><small>得勝者文教</small></div>
+      </div>
+      <div class="earlybird-banner">
+        <span class="eb-flag">限時</span>
+        <span class="eb-text"><b>7/5 前報名，餐點全免</b><small>原 NT$280 餐費由我們招待</small></span>
       </div>
       <div class="cta-row">
         <a href="#signup" class="btn btn-primary">立即填表報名</a>
@@ -842,7 +885,7 @@
     <p class="sch-note">＊實際安排以報名後的行前通知為準。</p>
     <div style="text-align:center;margin-top:36px">
       <a href="#signup" class="btn btn-primary" style="font-size:16px;padding:16px 40px">立即填表報名 →</a>
-      <p style="font-size:13px;color:var(--ink-soft);margin-top:10px">每梯限 30 人・額滿截止</p>
+      <p style="font-size:13px;color:var(--ink-soft);margin-top:10px">限額 30 人・額滿截止</p>
     </div>
   </div>
 </section>
@@ -984,7 +1027,7 @@
           <div class="back" style="margin:10px 0">兩天餐費</div>
           <ul style="list-style:none;text-align:left;width:100%;margin:12px 0 20px">
             <li style="padding-left:24px;position:relative;margin-bottom:10px;font-size:15px;color:var(--ink-soft)"><span style="position:absolute;left:0;color:var(--green);font-weight:900">✓</span>為什麼只收餐費？讀書方法營是我們讓你認識我們的方式！覺得值，你自然會想繼續～</li>
-            <li style="padding-left:24px;position:relative;font-size:15px;color:var(--ink-soft)"><span style="position:absolute;left:0;color:var(--green);font-weight:900">✓</span>每梯限 30 人，我們想把這個機會留給真的想來的學生！</li>
+            <li style="padding-left:24px;position:relative;font-size:15px;color:var(--ink-soft)"><span style="position:absolute;left:0;color:var(--green);font-weight:900">✓</span>限額 30 人，我們想把這個機會留給真的想來的學生！</li>
           </ul>
           <a href="#signup" class="btn btn-primary" style="width:100%;text-align:center">加 LINE 詢問 / 報名</a>
           <p class="cta-note" style="margin-top:10px;font-size:12px;color:var(--ink-soft)">＊實際費用與折抵方式以正式報名說明為準。</p>
@@ -1206,12 +1249,12 @@
       <div style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:20px 16px;text-align:center">
         <div style="width:36px;height:36px;border-radius:50%;background:#06C755;color:#fff;font-size:16px;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 12px">2</div>
         <div style="font-size:14px;font-weight:800;color:#fff;line-height:1.4">加官方 LINE</div>
-        <div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:4px;line-height:1.4">傳「已報名」→ 收到匯款資料</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:4px;line-height:1.4">傳「已報名」→ 收到報到與餐費資訊</div>
       </div>
       <div style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:20px 16px;text-align:center">
         <div style="width:36px;height:36px;border-radius:50%;background:var(--accent);color:#fff;font-size:16px;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 12px">3</div>
-        <div style="font-size:14px;font-weight:800;color:#fff;line-height:1.4">完成匯款</div>
-        <div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:4px;line-height:1.4">NT$ 280 餐費，報名確認</div>
+        <div style="font-size:14px;font-weight:800;color:#fff;line-height:1.4">完成報名</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:4px;line-height:1.4">7/5 前餐點全免；7/5 後 NT$280 餐費</div>
       </div>
       <div style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:20px 16px;text-align:center">
         <div style="width:36px;height:36px;border-radius:50%;background:#06C755;color:#fff;font-size:16px;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 12px">4</div>
@@ -1221,48 +1264,118 @@
     </div>
 
     <form class="signup-form" id="signupForm">
-      <div class="form-field">
-        <label>學生姓名 <span class="req">*</span></label>
-        <input type="text" name="student_name" required placeholder="請填學生姓名" />
+
+      <!-- progress -->
+      <div class="form-progress">
+        <div class="fp-step active" id="fpStep1"><span class="fp-num">1</span>基本資料</div>
+        <div class="fp-line"></div>
+        <div class="fp-step" id="fpStep2"><span class="fp-num">2</span>了解你一下</div>
       </div>
-      <div class="form-field">
-        <label>聯絡電話 <span class="req">*</span></label>
-        <input type="tel" name="phone" required placeholder="0900-000-000" />
+
+      <!-- ── PAGE 1：基本資料 ── -->
+      <div class="form-step active" id="formStep1">
+        <div class="form-field">
+          <label>學生姓名 <span class="req">*</span></label>
+          <input type="text" name="student_name" placeholder="請填學生姓名" />
+        </div>
+        <div class="form-field">
+          <label>聯絡電話 <span class="req">*</span></label>
+          <input type="tel" name="phone" placeholder="0900-000-000" />
+        </div>
+        <div class="form-field">
+          <label>就讀國中</label>
+          <input type="text" name="school" placeholder="例：○○國中" />
+        </div>
+        <div class="form-field">
+          <label>營隊日期</label>
+          <input type="hidden" name="session" value="7/20（一）– 7/21（二）" />
+          <div class="session-fixed">📅 7/20（一）– 7/21（二）<small>單一梯次・額滿不加開</small></div>
+        </div>
+        <div class="form-field">
+          <label>好友集體報名 <span style="font-size:12px;color:var(--ink-soft);font-weight:500">（選填）</span></label>
+          <input type="text" name="friend_name" placeholder="填好友姓名，保證分到同一隊" />
+        </div>
+        <button type="button" class="btn btn-primary form-btn-full" id="toStep2">下一步：了解你一下 →</button>
+        <div class="form-divider"><span>或</span></div>
+        <a href="https://lin.ee/ZgwlsQY" target="_blank" class="btn-line-form">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2C6.03 2 2 5.63 2 10.1c0 3.97 3.52 7.3 8.28 7.93.32.07.76.21.87.49.1.25.07.64.03.9l-.14.85c-.04.25-.2 1 .87.54 1.08-.45 5.81-3.42 7.93-5.85C21.25 13.04 22 11.64 22 10.1 22 5.63 17.97 2 11 2z" fill="white"/><path d="M9.1 8.3H8.2a.3.3 0 0 0-.3.3v3.8c0 .17.14.3.3.3h.9c.17 0 .3-.13.3-.3V8.6a.3.3 0 0 0-.3-.3zM14.1 8.3h-.9a.3.3 0 0 0-.3.3v2.26L11.3 8.45a.34.34 0 0 0-.26-.15h-.9a.3.3 0 0 0-.3.3v3.8c0 .17.13.3.3.3h.9c.16 0 .3-.13.3-.3V10.1l1.63 2.43c.05.08.14.12.22.12h.9c.17 0 .3-.13.3-.3V8.6a.3.3 0 0 0-.3-.3z" fill="#06C755"/></svg>
+          LINE 直接諮詢
+        </a>
       </div>
-      <div class="form-field">
-        <label>就讀國中</label>
-        <input type="text" name="school" placeholder="例：○○國中" />
+
+      <!-- ── PAGE 2：了解你一下（6 題診斷） ── -->
+      <div class="form-step" id="formStep2">
+        <p class="step-heading">花 1 分鐘讓我們更認識你，開營就能更貼近你的需求 👇</p>
+
+        <div class="qgroup">
+          <div class="qlabel">Q1｜你是怎麼知道這個營隊的？ <span class="req">*</span></div>
+          <label class="opt"><input type="radio" name="q1_source" value="畢業典禮拍立得活動"><span>畢業典禮拍立得活動</span></label>
+          <label class="opt"><input type="radio" name="q1_source" value="傳單"><span>傳單</span></label>
+          <label class="opt"><input type="radio" name="q1_source" value="Threads"><span>Threads</span></label>
+          <label class="opt"><input type="radio" name="q1_source" value="朋友推薦"><span>朋友推薦</span></label>
+          <label class="opt"><input type="radio" name="q1_source" value="爸媽推薦"><span>爸媽推薦</span></label>
+          <label class="opt"><input type="radio" name="q1_source" value="其他"><span>其他</span></label>
+        </div>
+
+        <div class="qgroup">
+          <div class="qlabel">Q2｜你決定來這個營的最主要原因是？ <span class="req">*</span></div>
+          <label class="opt"><input type="radio" name="q2_reason" value="爸媽說要來"><span>爸媽說要來</span></label>
+          <label class="opt"><input type="radio" name="q2_reason" value="朋友也來"><span>朋友也來</span></label>
+          <label class="opt"><input type="radio" name="q2_reason" value="我想提早了解高中怎麼讀"><span>我想提早了解高中怎麼讀</span></label>
+          <label class="opt"><input type="radio" name="q2_reason" value="我對活動的形式感興趣"><span>我對活動的形式感興趣</span></label>
+          <label class="opt"><input type="radio" name="q2_reason" value="其他"><span>其他</span></label>
+        </div>
+
+        <div class="qgroup">
+          <div class="qlabel">Q3｜你覺得升高中之後，最讓你擔心的是什麼？ <span class="req">*</span></div>
+          <div class="qhint">可複選</div>
+          <label class="opt"><input type="checkbox" name="q3_worry" value="讀書方法跟不上"><span>讀書方法跟不上</span></label>
+          <label class="opt"><input type="checkbox" name="q3_worry" value="功課變很多"><span>功課變很多</span></label>
+          <label class="opt"><input type="checkbox" name="q3_worry" value="交不到朋友"><span>交不到朋友</span></label>
+          <label class="opt"><input type="checkbox" name="q3_worry" value="我其實還好，沒特別擔心"><span>我其實還好，沒特別擔心</span></label>
+          <label class="opt"><input type="checkbox" name="q3_worry" value="其他"><span>其他</span></label>
+        </div>
+
+        <div class="qgroup">
+          <div class="qlabel">Q4｜你現在對暑假的規劃是？ <span class="req">*</span></div>
+          <label class="opt"><input type="radio" name="q4_summer" value="完全不想碰學習的東西"><span>完全不想碰學習的東西</span></label>
+          <label class="opt"><input type="radio" name="q4_summer" value="想休息一陣子再說"><span>想休息一陣子再說</span></label>
+          <label class="opt"><input type="radio" name="q4_summer" value="已經在補習或計劃補習"><span>已經在補習或計劃補習</span></label>
+          <label class="opt"><input type="radio" name="q4_summer" value="想用不一樣的方式準備高中"><span>想用不一樣的方式準備高中</span></label>
+        </div>
+
+        <div class="qgroup">
+          <div class="qlabel">Q5｜你對「讀書方法」這件事的感覺是？ <span class="req">*</span></div>
+          <label class="opt"><input type="radio" name="q5_method" value="我覺得我有自己的方法"><span>我覺得我有自己的方法</span></label>
+          <label class="opt"><input type="radio" name="q5_method" value="我覺得我的方法好像有問題但不知道怎麼改"><span>我覺得我的方法好像有問題，但不知道怎麼改</span></label>
+          <label class="opt"><input type="radio" name="q5_method" value="我根本不知道自己有沒有方法"><span>我根本不知道自己有沒有方法</span></label>
+          <label class="opt"><input type="radio" name="q5_method" value="我從來沒想過這件事"><span>我從來沒想過這件事</span></label>
+        </div>
+
+        <div class="qgroup">
+          <div class="qlabel">Q6｜你希望在這三天裡得到什麼？ <span class="req">*</span></div>
+          <div class="qhint">用你自己的話寫，約 2–3 句就好</div>
+          <textarea name="q6_hope" placeholder="例：希望知道高中英文怎麼念、想認識新朋友…"></textarea>
+        </div>
+
+        <div class="form-nav">
+          <button type="button" class="btn btn-back" id="backStep1">← 上一步</button>
+          <button type="submit" class="btn btn-primary">送出報名</button>
+        </div>
       </div>
-      <div class="form-field">
-        <label>欲參加梯次 <span class="req">*</span></label>
-        <select name="session" required>
-          <option value="">請選擇</option>
-          <option>第一梯 7/16（四）– 7/17（五）</option>
-          <option>第二梯 7/20（一）– 7/21（二）</option>
-        </select>
-      </div>
-      <div class="form-field">
-        <label>好友集體報名 <span style="font-size:12px;color:var(--ink-soft);font-weight:500">（選填）</span></label>
-        <input type="text" name="friend_name" placeholder="填好友姓名，保證分到同一隊" />
-      </div>
-      <button type="submit" class="btn btn-primary form-btn-full">送出報名</button>
-      <div class="form-divider"><span>或</span></div>
-      <a href= "https://lin.ee/ZgwlsQY" target="_blank" class="btn-line-form">
-        <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2C6.03 2 2 5.63 2 10.1c0 3.97 3.52 7.3 8.28 7.93.32.07.76.21.87.49.1.25.07.64.03.9l-.14.85c-.04.25-.2 1 .87.54 1.08-.45 5.81-3.42 7.93-5.85C21.25 13.04 22 11.64 22 10.1 22 5.63 17.97 2 11 2z" fill="white"/><path d="M9.1 8.3H8.2a.3.3 0 0 0-.3.3v3.8c0 .17.14.3.3.3h.9c.17 0 .3-.13.3-.3V8.6a.3.3 0 0 0-.3-.3zM14.1 8.3h-.9a.3.3 0 0 0-.3.3v2.26L11.3 8.45a.34.34 0 0 0-.26-.15h-.9a.3.3 0 0 0-.3.3v3.8c0 .17.13.3.3.3h.9c.16 0 .3-.13.3-.3V10.1l1.63 2.43c.05.08.14.12.22.12h.9c.17 0 .3-.13.3-.3V8.6a.3.3 0 0 0-.3-.3z" fill="#06C755"/></svg>
-        LINE 直接諮詢
-      </a>
+
       <p class="form-privacy">送出即表示同意大腦駭客就本次活動與您聯繫。</p>
     </form>
 
     <div class="form-success" id="signupSuccess">
       <div style="font-size:44px;margin-bottom:16px">✅</div>
       <h3 style="font-size:22px;font-weight:900;color:var(--green);margin-bottom:10px">報名資料已收到！</h3>
-      <p style="font-size:16px;color:var(--ink-soft);line-height:1.75;margin-bottom:24px">下一步：加入官方 LINE，<br>傳 <strong style="color:var(--ink)">「已報名」</strong>，我們會傳匯款資料給你。</p>
+      <p style="font-size:16px;color:var(--ink-soft);line-height:1.75;margin-bottom:24px">下一步：加入官方 LINE，<br>傳 <strong style="color:var(--ink)">「已報名」</strong>，我們會回覆報到與餐費資訊。<br><strong style="color:var(--green)">7/5 前報名，餐點全免！</strong></p>
       <a href="https://lin.ee/ZgwlsQY" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:10px;background:#06C755;color:#fff;font-size:16px;font-weight:900;padding:14px 28px;border-radius:999px;text-decoration:none;max-width:280px;margin:0 auto">
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2C6.03 2 2 5.63 2 10.1c0 3.97 3.52 7.3 8.28 7.93.32.07.76.21.87.49.1.25.07.64.03.9l-.14.85c-.04.25-.2 1 .87.54 1.08-.45 5.81-3.42 7.93-5.85C21.25 13.04 22 11.64 22 10.1 22 5.63 17.97 2 11 2z" fill="white"/><path d="M9.1 8.3H8.2a.3.3 0 0 0-.3.3v3.8c0 .17.14.3.3.3h.9c.17 0 .3-.13.3-.3V8.6a.3.3 0 0 0-.3-.3zM14.1 8.3h-.9a.3.3 0 0 0-.3.3v2.26L11.3 8.45a.34.34 0 0 0-.26-.15h-.9a.3.3 0 0 0-.3.3v3.8c0 .17.13.3.3.3h.9c.16 0 .3-.13.3-.3V10.1l1.63 2.43c.05.08.14.12.22.12h.9c.17 0 .3-.13.3-.3V8.6a.3.3 0 0 0-.3-.3z" fill="#06C755"/></svg>
         加入官方 LINE
       </a>
-      <p style="font-size:12px;color:var(--ink-soft);margin-top:14px">匯款後即確認座位・名額有限</p>
+      <p style="font-size:12px;color:var(--ink-soft);margin-top:14px">完成報到即確認座位・名額有限</p>
     </div>
   </div>
 </section>
@@ -1408,13 +1521,86 @@ const GS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzl3U9gvIztl_VJjyeu
   var form = document.getElementById('signupForm');
   var success = document.getElementById('signupSuccess');
   if(!form) return;
+
+  var step1 = document.getElementById('formStep1');
+  var step2 = document.getElementById('formStep2');
+  var fp1 = document.getElementById('fpStep1');
+  var fp2 = document.getElementById('fpStep2');
+
+  function show(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); }
+
+  // 顯示某一頁
+  function goPage(n){
+    if(n===1){
+      step1.classList.add('active'); step2.classList.remove('active');
+      fp1.classList.add('active'); fp1.classList.remove('done');
+      fp2.classList.remove('active');
+    } else {
+      step1.classList.remove('active'); step2.classList.add('active');
+      fp1.classList.remove('active'); fp1.classList.add('done');
+      fp2.classList.add('active');
+    }
+    show(form);
+  }
+
+  // 第一頁驗證
+  function validateStep1(){
+    var fields = step1.querySelectorAll('input[name],select[name]');
+    var requiredNames = ['student_name','phone','session'];
+    for(var i=0;i<fields.length;i++){
+      var f = fields[i];
+      if(requiredNames.indexOf(f.name)>-1 && !f.value.trim()){
+        f.focus();
+        alert('請完整填寫姓名、電話與梯次。');
+        return false;
+      }
+    }
+    return true;
+  }
+
+  // 第二頁驗證（6 題全部必填）
+  function validateStep2(){
+    var radios = ['q1_source','q2_reason','q4_summer','q5_method'];
+    for(var i=0;i<radios.length;i++){
+      if(!form.querySelector('input[name="'+radios[i]+'"]:checked')){
+        alert('還有題目沒填喔，6 題都填完才能送出 🙏');
+        return false;
+      }
+    }
+    if(!form.querySelector('input[name="q3_worry"]:checked')){
+      alert('Q3 請至少勾選一個選項 🙏');
+      return false;
+    }
+    var hope = form.querySelector('textarea[name="q6_hope"]');
+    if(!hope.value.trim()){
+      hope.focus();
+      alert('Q6 請簡單寫下你的期待 🙏');
+      return false;
+    }
+    return true;
+  }
+
+  document.getElementById('toStep2').addEventListener('click', function(){
+    if(validateStep1()) goPage(2);
+  });
+  document.getElementById('backStep1').addEventListener('click', function(){
+    goPage(1);
+  });
+
   form.addEventListener('submit', async function(e){
     e.preventDefault();
+    if(!validateStep1()){ goPage(1); return; }
+    if(!validateStep2()) return;
     var btn = form.querySelector('button[type="submit"]');
     var orig = btn.textContent;
     btn.disabled = true; btn.textContent = '送出中…';
     try {
-      var params = new URLSearchParams(new FormData(form));
+      // 多選 q3_worry 合併成一欄
+      var fd = new FormData(form);
+      var worries = fd.getAll('q3_worry');
+      fd.delete('q3_worry');
+      fd.set('q3_worry', worries.join('、'));
+      var params = new URLSearchParams(fd);
       await fetch(GS_ENDPOINT, {method:'POST', mode:'no-cors', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body:params.toString()});
       form.style.display = 'none';
       success.style.display = 'block';

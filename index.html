@@ -139,6 +139,7 @@
   /* ── About section disclosure toggle ── */
   summary.about-trigger{cursor:pointer;outline:none;list-style:none;display:block;-webkit-user-select:none;user-select:none}
   summary.about-trigger::-webkit-details-marker{display:none}
+  summary.about-trigger::after{content:none!important}
   summary.about-trigger:hover .about-arr{color:var(--accent)}
   summary.about-trigger:hover h3,.about-trigger:hover [style*="font-size:18px"]{color:var(--accent)}
   .about-arr{font-size:20px;color:var(--ink-soft);transition:transform .3s,color .2s;line-height:1;flex-shrink:0;margin-left:16px}
@@ -538,7 +539,7 @@
 
 <div class="bar">
   <div class="wrap">
-    <div class="brand"><span style="color:#1e3a5f">大腦駭客</span> <span style="font-weight:400;color:var(--ink-soft);font-size:.85em">×</span> <span style="color:var(--accent)">得勝者文教</span></div>
+    <div class="brand"><span style="color:#1e3a5f">大腦駭客</span></div>
     <a href="#signup" class="btn btn-primary">立即搶名額</a>
   </div>
 </div>
@@ -720,13 +721,13 @@
       <p class="sub">讓你上高中可以：<wbr>把書<b style="color:var(--accent)">讀完</b>、<b style="color:var(--accent)">讀懂</b>、<b style="color:var(--accent)">稱霸</b></p>
       <div class="facts">
         <div class="fact"><b>2 天</b><small>沉浸式營隊</small></div>
-        <div class="fact"><b>30 人限額</b><small>額滿不加開</small></div>
+        <div class="fact"><b>30 人限額</b><small>限額招生</small></div>
         <div class="fact"><b>📅 日期</b><small>7/20（一）– 7/21（二）</small></div>
         <div class="fact"><b>📍 地點</b><small>得勝者文教</small></div>
       </div>
       <div class="earlybird-banner">
         <span class="eb-flag">限時</span>
-        <span class="eb-text"><b>7/5 前報名，餐點全免</b><small>原 NT$280 餐費由我們招待</small></span>
+        <span class="eb-text"><b>7/5 前報名，費用全免</b></span>
       </div>
       <div class="cta-row">
         <a href="#signup" class="btn btn-primary">立即填表報名</a>
@@ -804,14 +805,14 @@
         <div class="sch-card" style="flex:0 0 calc(80% - 10px);min-width:280px;gap:0">
           <div class="num" style="margin-bottom:10px;font-size:11px;font-weight:900">02 · 動力與計畫工作坊</div>
           <h3 style="font-size:20px;margin-bottom:12px;color:var(--accent)">建立能撐三年的讀書系統</h3>
-          <p style="font-size:15px;color:var(--ink-soft);line-height:1.75;margin-bottom:16px">透過工作坊教你，如何打造自己的學習計畫，開學第一天就能執行！同時，帶你找到健康的讀書動機——不靠意志力硬撐，而是建立讓自己持續前進的系統。</p>
+          <p style="font-size:15px;color:var(--ink-soft);line-height:1.75;margin-bottom:16px">透過工作坊教你，如何打造自己的學習計畫，開學第一天就能執行！同時，帶你找到健康的讀書動機——不靠意志力硬撐，而是<strong style="color:var(--ink)">建立讓自己持續前進的系統</strong>。</p>
           <img src="pillar1_photo.jpg" alt="計畫工作坊" style="width:100%;height:200px;object-fit:cover;border-radius:10px;display:block">
         </div>
 
         <div class="sch-card" style="flex:0 0 calc(80% - 10px);min-width:280px;gap:0">
           <div class="num" style="margin-bottom:10px;font-size:11px;font-weight:900">03 · 詞彙記憶工作坊</div>
           <h3 style="font-size:20px;margin-bottom:12px;color:var(--accent)">用認知科學解決背單字</h3>
-          <p style="font-size:15px;color:var(--ink-soft);line-height:1.75;margin-bottom:16px">解決升高中後最多人頭痛的問題：英文單字量暴增，難度三級跳！我們用語言學和認知科學的方法，教你高效記憶——讓背單字不再是夢魘，而是有方法、可以掌控的事。</p>
+          <p style="font-size:15px;color:var(--ink-soft);line-height:1.75;margin-bottom:16px">解決升高中後最多人頭痛的問題：英文單字量暴增，難度三級跳！我們用語言學和認知科學的方法，教你高效記憶——讓背單字不再是夢魘，而是<strong style="color:var(--ink)">有方法、可以掌控的事</strong>。</p>
           <img src="pillar3_photo.jpg" alt="詞彙記憶工作坊" style="width:100%;height:200px;object-fit:cover;border-radius:10px;display:block">
         </div>
 
@@ -896,14 +897,12 @@
     <div class="guide-intro">
       <span class="eyebrow">你的嚮導</span>
       <h2>設計這三天的人</h2>
-      <p class="lead" style="max-width:560px;margin:16px auto 0">每一個工作坊、每一個環節，背後都有人認真設計過。</p>
+      <p class="lead" style="max-width:560px;margin:16px auto 0">每一個環節，<br>都是大腦駭客精心設計。</p>
     </div>
 
     <div class="guide-body">
 
       <div class="guide-main-card">
-        <div class="guide-main-role">課程設計者</div>
-
         <div style="display:flex;align-items:center;gap:14px;margin-bottom:22px">
           <img src="Logo.jpg" alt="大腦駭客" style="width:64px;height:64px;object-fit:cover;border-radius:12px;flex-shrink:0">
           <div>
@@ -1023,14 +1022,14 @@
 
         <div class="sch-card" style="flex:0 0 calc(85% - 10px);min-width:280px;text-align:center;align-items:center">
           <span class="eyebrow">費用方案</span>
-          <div style="font-size:42px;font-weight:900;color:var(--ink);line-height:1;margin:10px 0 4px">NT$ 280</div>
-          <div class="back" style="margin:10px 0">兩天餐費</div>
-          <ul style="list-style:none;text-align:left;width:100%;margin:12px 0 20px">
-            <li style="padding-left:24px;position:relative;margin-bottom:10px;font-size:15px;color:var(--ink-soft)"><span style="position:absolute;left:0;color:var(--green);font-weight:900">✓</span>為什麼只收餐費？讀書方法營是我們讓你認識我們的方式！覺得值，你自然會想繼續～</li>
-            <li style="padding-left:24px;position:relative;font-size:15px;color:var(--ink-soft)"><span style="position:absolute;left:0;color:var(--green);font-weight:900">✓</span>限額 30 人，我們想把這個機會留給真的想來的學生！</li>
+          <div style="display:inline-flex;align-items:center;gap:5px;background:#eafaf3;border:1px solid #6ee7b7;border-radius:999px;padding:5px 13px;font-size:12px;font-weight:900;color:var(--green);margin:10px 0 4px">⏰ 7/5 前報名限定</div>
+          <div style="font-size:40px;font-weight:900;color:var(--green);line-height:1;margin:4px 0 2px">費用全免</div>
+          <div class="back" style="margin:6px 0">原 <s style="color:var(--ink-soft);opacity:.7">NT$ 280</s> 兩天餐費，由我們招待</div>
+          <ul style="list-style:none;text-align:left;width:100%;margin:10px 0 18px">
+            <li style="padding-left:24px;position:relative;margin-bottom:10px;font-size:14.5px;color:var(--ink-soft)"><span style="position:absolute;left:0;color:var(--green);font-weight:900">✓</span><strong>7/5 前報名完全免費</strong>，7/5 後僅收 NT$280 餐費。</li>
+            <li style="padding-left:24px;position:relative;font-size:14.5px;color:var(--ink-soft)"><span style="position:absolute;left:0;color:var(--green);font-weight:900">✓</span>只收餐費，因為讀書方法營是我們讓你認識我們的方式！覺得值，你自然會想繼續～</li>
           </ul>
-          <a href="#signup" class="btn btn-primary" style="width:100%;text-align:center">加 LINE 詢問 / 報名</a>
-          <p class="cta-note" style="margin-top:10px;font-size:12px;color:var(--ink-soft)">＊實際費用與折抵方式以正式報名說明為準。</p>
+          <a href="#signup" class="btn btn-primary" style="width:100%;text-align:center">立即填表報名</a>
         </div>
 
         <div class="sch-card" style="flex:0 0 calc(85% - 10px);min-width:280px;background:var(--accent);border-color:var(--accent);text-align:center;align-items:center">
@@ -1233,7 +1232,7 @@
 <section id="signup" style="background:var(--ink);padding:80px 0">
   <div class="wrap">
     <div style="text-align:center">
-      <span class="eyebrow" style="color:var(--accent);background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.12)">名額有限・額滿不加開</span>
+      <span class="eyebrow" style="color:var(--accent);background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.12)">名額有限</span>
       <h2 style="color:#fff;margin-top:10px">把這個暑假，過成值得記得的兩天。</h2>
       <p style="color:rgba(255,255,255,.6);font-size:16px;margin-top:12px">留下資料，我們幫你保留座位。</p>
       <p style="color:rgba(255,255,255,.45);font-size:14px;margin-top:8px">📍 活動地點：得勝者文教</p>
@@ -1254,7 +1253,7 @@
       <div style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:20px 16px;text-align:center">
         <div style="width:36px;height:36px;border-radius:50%;background:var(--accent);color:#fff;font-size:16px;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 12px">3</div>
         <div style="font-size:14px;font-weight:800;color:#fff;line-height:1.4">完成報名</div>
-        <div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:4px;line-height:1.4">7/5 前餐點全免；7/5 後 NT$280 餐費</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:4px;line-height:1.4">7/5 前費用全免；7/5 後 NT$280 餐費</div>
       </div>
       <div style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:20px 16px;text-align:center">
         <div style="width:36px;height:36px;border-radius:50%;background:#06C755;color:#fff;font-size:16px;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 12px">4</div>
@@ -1289,7 +1288,7 @@
         <div class="form-field">
           <label>營隊日期</label>
           <input type="hidden" name="session" value="7/20（一）– 7/21（二）" />
-          <div class="session-fixed">📅 7/20（一）– 7/21（二）<small>單一梯次・額滿不加開</small></div>
+          <div class="session-fixed">📅 7/20（一）– 7/21（二）<small>單一梯次</small></div>
         </div>
         <div class="form-field">
           <label>好友集體報名 <span style="font-size:12px;color:var(--ink-soft);font-weight:500">（選填）</span></label>
@@ -1370,7 +1369,7 @@
     <div class="form-success" id="signupSuccess">
       <div style="font-size:44px;margin-bottom:16px">✅</div>
       <h3 style="font-size:22px;font-weight:900;color:var(--green);margin-bottom:10px">報名資料已收到！</h3>
-      <p style="font-size:16px;color:var(--ink-soft);line-height:1.75;margin-bottom:24px">下一步：加入官方 LINE，<br>傳 <strong style="color:var(--ink)">「已報名」</strong>，我們會回覆報到與餐費資訊。<br><strong style="color:var(--green)">7/5 前報名，餐點全免！</strong></p>
+      <p style="font-size:16px;color:var(--ink-soft);line-height:1.75;margin-bottom:24px">下一步：加入官方 LINE，<br>傳 <strong style="color:var(--ink)">「已報名」</strong>，我們會回覆報到與餐費資訊。<br><strong style="color:var(--green)">7/5 前報名，費用全免！</strong></p>
       <a href="https://lin.ee/ZgwlsQY" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:10px;background:#06C755;color:#fff;font-size:16px;font-weight:900;padding:14px 28px;border-radius:999px;text-decoration:none;max-width:280px;margin:0 auto">
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2C6.03 2 2 5.63 2 10.1c0 3.97 3.52 7.3 8.28 7.93.32.07.76.21.87.49.1.25.07.64.03.9l-.14.85c-.04.25-.2 1 .87.54 1.08-.45 5.81-3.42 7.93-5.85C21.25 13.04 22 11.64 22 10.1 22 5.63 17.97 2 11 2z" fill="white"/><path d="M9.1 8.3H8.2a.3.3 0 0 0-.3.3v3.8c0 .17.14.3.3.3h.9c.17 0 .3-.13.3-.3V8.6a.3.3 0 0 0-.3-.3zM14.1 8.3h-.9a.3.3 0 0 0-.3.3v2.26L11.3 8.45a.34.34 0 0 0-.26-.15h-.9a.3.3 0 0 0-.3.3v3.8c0 .17.13.3.3.3h.9c.16 0 .3-.13.3-.3V10.1l1.63 2.43c.05.08.14.12.22.12h.9c.17 0 .3-.13.3-.3V8.6a.3.3 0 0 0-.3-.3z" fill="#06C755"/></svg>
         加入官方 LINE
